@@ -1,0 +1,109 @@
+{
+  "source_file": "./data/autospec_bench/code2inv_133_benchmark_verified/25_verified.c",
+  "function_name": "foo",
+  "function_signature": "void foo(int x)",
+  "preconditions": [
+    "x == 10000"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x": 10000
+      },
+      "expected_output": null,
+      "description": "Valid input x=10000, normal execution",
+      "validation_status": "valid",
+      "actual_output": "test_case_1 passed"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x": 10000
+      },
+      "expected_output": null,
+      "description": "Valid input x=10000, loop runs to completion",
+      "validation_status": "valid",
+      "actual_output": "test_case_2 passed"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x": 10000
+      },
+      "expected_output": null,
+      "description": "Valid input x=10000, maximum allowed value",
+      "validation_status": "valid",
+      "actual_output": "test_case_3 passed"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x": 10000
+      },
+      "expected_output": null,
+      "description": "Valid input x=10000, mid-execution check",
+      "validation_status": "valid",
+      "actual_output": "test_case_4 passed"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x": 10000
+      },
+      "expected_output": null,
+      "description": "Valid input x=10000, final assertion check",
+      "validation_status": "valid",
+      "actual_output": "test_case_5 passed"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "x": 10000
+      },
+      "expected_output": null,
+      "description": "Boundary case: x=10000, initial value",
+      "validation_status": "valid",
+      "actual_output": "test_case_6 passed"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "x": 10000
+      },
+      "expected_output": null,
+      "description": "Boundary case: x=10000, loop termination",
+      "validation_status": "valid",
+      "actual_output": "test_case_7 passed"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "x": 9999
+      },
+      "expected_output": null,
+      "description": "Invalid input x=9999 violating precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "x": 10001
+      },
+      "expected_output": null,
+      "description": "Invalid input x=10001 violating precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+You are an expert translator from C to safe, idiomatic Rust.
+Your task is to translate C macros (defined with #define) into equivalent, valid Rust code.
+
+### Translation Rules
+- Use idiomatic Rust formatting and style.
+- Preserve all identifiers exactly as in the C source.
+- For numeric or constant macros (e.g., `#define X 3`), translate into `const` if possible.
+- For macros that depend on line number or other compiler built-ins (e.g., `__LINE__`), translate into Rust macros using `macro_rules!` and `line!()` or `file!()` as appropriate.
+- For function-like macros (e.g., `#define SQUARE(x) ((x)*(x))`), translate into `macro_rules!` macros.
+- Use parentheses around macro expressions to preserve precedence.
+- Do not introduce unsafe code unless absolutely necessary.
+- Provide ergonomic Rust usage where applicable.
+
+### Output requirements
+- Use ```rust code blocks to wrap all Rust output.
+- Output only the Rust code, no explanations.
+- Do not include any additional text outside the code block.
+
+### Example
+#### Example1
+**Input:**
+```c
+#define X 3
+```
+
+**Output:**
+```rust
+const X: i32 = 3;
+```
+
+#### Example2
+**Input:**
+```c
+#define SQUARE(x) ((x)*(x))
+```
+
+**Output:**
+```rust
+macro_rules! SQUARE {{
+    ($x:expr) => {{
+        (($x) * ($x))
+    }};
+}}
+```
+
+#### Example3
+**Input:**
+```c
+#define LINE_ERROR ((X * 100000) + __LINE__)
+```
+
+**Output:**
+```rust
+macro_rules! LINE_ERROR {{
+    () => {{
+        ((X * 100_000) + (line!() as i32))
+    }};
+}}
+```
+
+### Now, please translate the following C macros into safe, idiomatic Rust code:
+{context}
+**Input:**
+```c
+{code}
+```
+
+**Output:**

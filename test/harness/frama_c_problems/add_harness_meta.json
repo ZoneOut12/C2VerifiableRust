@@ -1,0 +1,119 @@
+{
+  "source_file": "./data/frama_c_problems/add.c",
+  "function_name": "add",
+  "function_signature": "int add(int x, int y)",
+  "preconditions": [
+    "x+y <= INT_MAX",
+    "x+y >= INT_MIN"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x": 1,
+        "y": 43
+      },
+      "expected_output": 44,
+      "description": "Normal case from foo function",
+      "validation_status": "valid",
+      "actual_output": "44"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x": 10,
+        "y": 20
+      },
+      "expected_output": 30,
+      "description": "Two small positive integers",
+      "validation_status": "valid",
+      "actual_output": "30"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x": 0,
+        "y": 0
+      },
+      "expected_output": 0,
+      "description": "Zero values",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x": -5,
+        "y": 3
+      },
+      "expected_output": -2,
+      "description": "Negative plus positive",
+      "validation_status": "valid",
+      "actual_output": "-2"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x": "INT_MAX - 1",
+        "y": 1
+      },
+      "expected_output": "2147483647",
+      "description": "Sum at maximum integer value",
+      "validation_status": "valid",
+      "actual_output": "2147483647"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "x": "INT_MAX",
+        "y": 1
+      },
+      "expected_output": null,
+      "description": "Sum exceeds INT_MAX",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "x": "INT_MIN",
+        "y": -1
+      },
+      "expected_output": null,
+      "description": "Sum below INT_MIN",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "x": "INT_MAX",
+        "y": 0
+      },
+      "expected_output": "2147483647",
+      "description": "Sum equals INT_MAX",
+      "validation_status": "valid",
+      "actual_output": "2147483647"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "x": "INT_MIN",
+        "y": 0
+      },
+      "expected_output": "-2147483648",
+      "description": "Sum equals INT_MIN",
+      "validation_status": "valid",
+      "actual_output": "-2147483648"
+    }
+  ]
+}

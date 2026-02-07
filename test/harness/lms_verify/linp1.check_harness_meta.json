@@ -1,0 +1,141 @@
+{
+  "source_file": "./data/lms_verify/linp1.check.c",
+  "function_name": "index_",
+  "function_signature": "int index_(int x0, int x1, int x2, int x3)",
+  "preconditions": [
+    "0 < x0 && x0 < 100",
+    "0 < x1 && x1 < 100",
+    "0 <= x2",
+    "0 <= x3",
+    "x2 < x0",
+    "x3 < x1"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x0": 5,
+        "x1": 5,
+        "x2": 2,
+        "x3": 3
+      },
+      "expected_output": 13,
+      "description": "Typical valid case with x0=5, x1=5, x2=2, x3=3",
+      "validation_status": "valid",
+      "actual_output": "13"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x0": 10,
+        "x1": 20,
+        "x2": 0,
+        "x3": 0
+      },
+      "expected_output": 0,
+      "description": "Minimum valid x2 and x3 values",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x0": 2,
+        "x1": 3,
+        "x2": 1,
+        "x3": 2
+      },
+      "expected_output": 5,
+      "description": "Valid case with x0=2, x1=3, x2=1, x3=2",
+      "validation_status": "valid",
+      "actual_output": "5"
+    },
+    {
+      "test_id": 4,
+      "type": "boundary",
+      "inputs": {
+        "x0": 1,
+        "x1": 1,
+        "x2": 0,
+        "x3": 0
+      },
+      "expected_output": 0,
+      "description": "Minimum valid dimensions (1x1 matrix)",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 5,
+      "type": "boundary",
+      "inputs": {
+        "x0": 99,
+        "x1": 99,
+        "x2": 98,
+        "x3": 98
+      },
+      "expected_output": 9800,
+      "description": "Maximum valid dimensions (99x99 matrix)",
+      "validation_status": "valid",
+      "actual_output": "9800"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "x0": 0,
+        "x1": 5,
+        "x2": 0,
+        "x3": 3
+      },
+      "expected_output": null,
+      "description": "Invalid x0 value (x0 must be > 0)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "x0": 5,
+        "x1": 5,
+        "x2": 2,
+        "x3": 5
+      },
+      "expected_output": null,
+      "description": "Invalid x3 value (x3 >= x1)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "valid",
+      "inputs": {
+        "x0": 3,
+        "x1": 4,
+        "x2": 2,
+        "x3": 3
+      },
+      "expected_output": 11,
+      "description": "Valid case with x0=3, x1=4, x2=2, x3=3",
+      "validation_status": "valid",
+      "actual_output": "11"
+    },
+    {
+      "test_id": 9,
+      "type": "valid",
+      "inputs": {
+        "x0": 50,
+        "x1": 50,
+        "x2": 25,
+        "x3": 25
+      },
+      "expected_output": 1275,
+      "description": "Mid-range valid values",
+      "validation_status": "valid",
+      "actual_output": "1275"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "source_file": "./data/autospec_bench/code2inv_133_benchmark_verified/89_verified.c",
+  "function_name": "foo",
+  "function_signature": "void foo(int x, int y)",
+  "preconditions": [
+    "x == y"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x": 5,
+        "y": 5
+      },
+      "expected_output": null,
+      "description": "Valid case with x and y equal to 5",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x": 10,
+        "y": 10
+      },
+      "expected_output": null,
+      "description": "Valid case with x and y equal to 10",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x": -3,
+        "y": -3
+      },
+      "expected_output": null,
+      "description": "Valid case with x and y equal to -3",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x": 100,
+        "y": 100
+      },
+      "expected_output": null,
+      "description": "Valid case with x and y equal to 100",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x": 42,
+        "y": 42
+      },
+      "expected_output": null,
+      "description": "Valid case with x and y equal to 42",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "x": 2,
+        "y": 3
+      },
+      "expected_output": null,
+      "description": "Invalid case with x < y",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "x": 5,
+        "y": 4
+      },
+      "expected_output": null,
+      "description": "Invalid case with x > y",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "x": 0,
+        "y": 0
+      },
+      "expected_output": null,
+      "description": "Boundary case with x and y equal to 0",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "x": 1,
+        "y": 1
+      },
+      "expected_output": null,
+      "description": "Boundary case with x and y equal to 1",
+      "validation_status": "compile_error",
+      "actual_output": null
+    }
+  ]
+}

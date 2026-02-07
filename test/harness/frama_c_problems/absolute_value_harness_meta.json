@@ -1,0 +1,109 @@
+{
+  "source_file": "./data/frama_c_problems/absolute_value.c",
+  "function_name": "abs",
+  "function_signature": "int abs(int val)",
+  "preconditions": [
+    "val > INT_MIN"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "val": 0
+      },
+      "expected_output": 0,
+      "description": "Zero input returns zero",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "val": 42
+      },
+      "expected_output": 42,
+      "description": "Positive input returns same value",
+      "validation_status": "valid",
+      "actual_output": "42"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "val": -42
+      },
+      "expected_output": 42,
+      "description": "Negative input returns positive absolute value",
+      "validation_status": "valid",
+      "actual_output": "42"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "val": 1000
+      },
+      "expected_output": 1000,
+      "description": "Positive large number returns same",
+      "validation_status": "valid",
+      "actual_output": "1000"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "val": -1000
+      },
+      "expected_output": 1000,
+      "description": "Negative large number returns positive",
+      "validation_status": "valid",
+      "actual_output": "1000"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "val": "INT_MIN"
+      },
+      "expected_output": null,
+      "description": "Minimum integer value violates precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "val": -2147483648
+      },
+      "expected_output": null,
+      "description": "Minimum integer value (explicit) violates precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "val": -2147483647
+      },
+      "expected_output": 2147483647,
+      "description": "Smallest valid negative input returns max positive",
+      "validation_status": "valid",
+      "actual_output": "2147483647"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "val": 0
+      },
+      "expected_output": 0,
+      "description": "Zero as boundary between positive and negative",
+      "validation_status": "valid",
+      "actual_output": "0"
+    }
+  ]
+}

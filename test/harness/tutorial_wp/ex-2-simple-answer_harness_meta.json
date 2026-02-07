@@ -1,0 +1,109 @@
+{
+  "source_file": "./data/tutorial_wp/ex-2-simple-answer.c",
+  "function_name": "kind_of_letter",
+  "function_signature": "enum Kind kind_of_letter(char c)",
+  "preconditions": [
+    "requires 'a' <= c <= 'z'"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "c": "'a'"
+      },
+      "expected_output": "0",
+      "description": "Valid vowel input 'a'",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "c": "'b'"
+      },
+      "expected_output": "1",
+      "description": "Valid consonant input 'b'",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "c": "'u'"
+      },
+      "expected_output": "0",
+      "description": "Valid vowel input 'u'",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "c": "'z'"
+      },
+      "expected_output": "1",
+      "description": "Valid consonant input 'z'",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "c": "'y'"
+      },
+      "expected_output": "0",
+      "description": "Valid vowel input 'y'",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "c": "'A'"
+      },
+      "expected_output": "null",
+      "description": "Invalid uppercase input 'A'",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "c": "'#'"
+      },
+      "expected_output": "null",
+      "description": "Invalid symbol input '#'",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "c": "'a'"
+      },
+      "expected_output": "0",
+      "description": "Boundary input 'a' (lower limit)",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "c": "'z'"
+      },
+      "expected_output": "1",
+      "description": "Boundary input 'z' (upper limit)",
+      "validation_status": "valid",
+      "actual_output": "1"
+    }
+  ]
+}

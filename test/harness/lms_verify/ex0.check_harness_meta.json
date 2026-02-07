@@ -1,0 +1,109 @@
+{
+  "source_file": "./data/lms_verify/ex0.check.c",
+  "function_name": "inc",
+  "function_signature": "int inc(int x0)",
+  "preconditions": [
+    "x0<INT_MAX"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x0": 0
+      },
+      "expected_output": 1,
+      "description": "Valid input: zero",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x0": 42
+      },
+      "expected_output": 43,
+      "description": "Valid input: positive number",
+      "validation_status": "valid",
+      "actual_output": "43"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x0": -10
+      },
+      "expected_output": -9,
+      "description": "Valid input: negative number",
+      "validation_status": "valid",
+      "actual_output": "-9"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x0": 1000
+      },
+      "expected_output": 1001,
+      "description": "Valid input: mid-range positive",
+      "validation_status": "valid",
+      "actual_output": "1001"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x0": 2147483547
+      },
+      "expected_output": 2147483548,
+      "description": "Valid input: near INT_MAX (INT_MAX=2147483647)",
+      "validation_status": "valid",
+      "actual_output": "2147483548"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "x0": 2147483646
+      },
+      "expected_output": 2147483647,
+      "description": "Boundary input: INT_MAX-1",
+      "validation_status": "valid",
+      "actual_output": "2147483647"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "x0": -2147483648
+      },
+      "expected_output": -2147483647,
+      "description": "Boundary input: INT_MIN",
+      "validation_status": "valid",
+      "actual_output": "-2147483647"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "x0": 2147483647
+      },
+      "expected_output": null,
+      "description": "Invalid input: x0 == INT_MAX",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "x0": 2147483647
+      },
+      "expected_output": null,
+      "description": "Invalid input: x0 == INT_MAX (duplicate)",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

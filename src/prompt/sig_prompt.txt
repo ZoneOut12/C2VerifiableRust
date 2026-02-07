@@ -1,0 +1,70 @@
+You are an expert C-to-Rust translator specializing in verified systems code.
+
+Your task is to translate the following C function (which includes ACSL annotations) 
+into a correct, idiomatic Rust function **signature**.
+
+### Guidelines:
+
+1. Only output the Rust function signature line (no body, no comments).
+2. Use idiomatic Rust types and ownership conventions inferred from the C code and ACSL specification.
+3. Interpret ACSL contracts (`requires`, `ensures`, `assigns`, etc.) to infer:
+   - whether pointers should become shared references (`&T`)
+   - whether non-const pointers should become mutable references (`&mut T`)
+   - whether arrays or buffers should become slices (`&[T]` or `&mut [T]`)
+   - whether the return value should be wrapped in `Option<T>` or `Result<T, E>`
+   - **IMPORTANT:** if the ACSL contract contains an `assigns` clause, pay special attention to it to determine which parameters are mutated and must be `&mut`.
+4. Map C types to idiomatic Rust types:
+   - `int` -> `i32`
+   - `size_t` -> `usize`
+   - `const char*` -> `&str`
+   - `char*` -> `&str` or `&mut String` depending on mutability
+   - `T*` -> `&mut T` or `&T` depending on mutability
+   - Pointers to arrays or buffers -> slices (`&[T]` or `&mut [T]`)
+5. The function name and all parameter names must remain exactly the same as in the C code.
+
+### Examples
+
+#### Example 1
+
+**Input (C with ACSL):**
+```c
+/*@
+    requires n > 0;
+    requires \valid_read(arr + (0 .. n-1));
+    ensures \result >= 0;
+*/
+int max_in_array(const int* arr, size_t n);
+```
+
+**Output (Rust signature):**
+```rust
+fn max_in_array(arr: &[i32], n: usize) -> i32
+```
+
+#### Example 2
+**Input (C with ACSL):**
+```c
+/*@
+    requires 0 <= length;
+    requires \valid_read(original+(0 .. length-1));
+    requires \valid(copy+(0 .. length-1));
+    requires \separated(original+(0 .. length-1), copy+(0 .. length-1));
+    assigns copy[0 .. length-1];
+    ensures \forall integer j ; 0 <= j < length ==> original[j] == copy[j] ;
+*/
+void copy(int *original, int* copy, int length);
+```
+
+**Output (Rust signature):**
+```rust
+fn copy(original: &[i32], copy: &mut [i32], length: i32)
+```
+
+### Now, translate the following ACSL-annotated C function into an idiomatic Rust function signature:
+
+**Input (C with ACSL):**
+```
+{code}
+```
+
+**Output (Rust signature):**

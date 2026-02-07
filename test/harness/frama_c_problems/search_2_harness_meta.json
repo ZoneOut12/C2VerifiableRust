@@ -1,0 +1,160 @@
+{
+  "source_file": "./data/frama_c_problems/search_2.c",
+  "function_name": "arraySearch",
+  "function_signature": "int arraySearch(int *a, int x, int n)",
+  "preconditions": [
+    "n > 0",
+    "\\valid_read(a + (0..n-1))"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "x": 3,
+        "n": 4
+      },
+      "expected_output": 1,
+      "description": "Valid case: x is present in the middle of the array",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "x": 5,
+        "n": 4
+      },
+      "expected_output": 0,
+      "description": "Valid case: x is not present in the array",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          5,
+          6,
+          7
+        ],
+        "x": 5,
+        "n": 3
+      },
+      "expected_output": 1,
+      "description": "Valid case: x is the first element",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          10,
+          20,
+          30
+        ],
+        "x": 30,
+        "n": 3
+      },
+      "expected_output": 1,
+      "description": "Valid case: x is the last element",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "x": 4,
+        "n": 5
+      },
+      "expected_output": 1,
+      "description": "Valid case: x is present in the middle of a larger array",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "a": [
+          42
+        ],
+        "x": 42,
+        "n": 1
+      },
+      "expected_output": 1,
+      "description": "Boundary case: n=1 and x is present",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "a": [
+          42
+        ],
+        "x": 5,
+        "n": 1
+      },
+      "expected_output": 0,
+      "description": "Boundary case: n=1 and x is not present",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "a": [
+          1,
+          2,
+          3
+        ],
+        "x": 2,
+        "n": 0
+      },
+      "expected_output": null,
+      "description": "Invalid case: n=0 violates n > 0 precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "a": null,
+        "x": 5,
+        "n": 3
+      },
+      "expected_output": null,
+      "description": "Invalid case: a is NULL violates array validity",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

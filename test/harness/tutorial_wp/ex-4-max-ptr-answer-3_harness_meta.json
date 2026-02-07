@@ -1,0 +1,118 @@
+{
+  "source_file": "./data/tutorial_wp/ex-4-max-ptr-answer-3.c",
+  "function_name": "max_ptr",
+  "function_signature": "int max_ptr(int* a, int* b)",
+  "preconditions": [
+    "\\valid_read(a) && \\valid_read(b)"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": 10,
+        "b": 20
+      },
+      "expected_output": 20,
+      "description": "a is less than b",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": 30,
+        "b": 15
+      },
+      "expected_output": 30,
+      "description": "a is greater than b",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": 5,
+        "b": 5
+      },
+      "expected_output": 5,
+      "description": "a and b are equal",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "a": -5,
+        "b": 5
+      },
+      "expected_output": 5,
+      "description": "a is negative, b is positive",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": 0,
+        "b": 0
+      },
+      "expected_output": 0,
+      "description": "both values are zero",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "a": null,
+        "b": 42
+      },
+      "expected_output": null,
+      "description": "a is NULL, violating valid_read(a)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "a": 24,
+        "b": null
+      },
+      "expected_output": null,
+      "description": "b is NULL, violating valid_read(b)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "a": -2147483648,
+        "b": 2147483647
+      },
+      "expected_output": 2147483647,
+      "description": "a is INT_MIN and b is INT_MAX",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "a": 5,
+        "b": 5
+      },
+      "expected_output": 5,
+      "description": "a and b point to the same variable",
+      "validation_status": "compile_error",
+      "actual_output": null
+    }
+  ]
+}

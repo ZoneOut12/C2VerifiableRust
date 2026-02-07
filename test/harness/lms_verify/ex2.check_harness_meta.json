@@ -1,0 +1,147 @@
+{
+  "source_file": "./data/lms_verify/ex2.check.c",
+  "function_name": "pick_element",
+  "function_signature": "int pick_element(int *x6, int x7)",
+  "preconditions": [
+    "(x7>0)",
+    "\\valid(x6+(0..x7-1))"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x6": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "x7": 5
+      },
+      "expected_output": 1,
+      "description": "Valid - normal array with 5 elements",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x6": [
+          10,
+          20
+        ],
+        "x7": 2
+      },
+      "expected_output": 10,
+      "description": "Valid - array with 2 elements",
+      "validation_status": "valid",
+      "actual_output": "10"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x6": [
+          42
+        ],
+        "x7": 1
+      },
+      "expected_output": 42,
+      "description": "Valid - single element array",
+      "validation_status": "valid",
+      "actual_output": "42"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x6": [
+          5,
+          5,
+          5
+        ],
+        "x7": 3
+      },
+      "expected_output": 5,
+      "description": "Valid - array with repeated values",
+      "validation_status": "valid",
+      "actual_output": "5"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x6": [
+          0,
+          -1,
+          2,
+          3
+        ],
+        "x7": 4
+      },
+      "expected_output": 0,
+      "description": "Valid - array with mixed values",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "x6": [
+          1,
+          2
+        ],
+        "x7": 0
+      },
+      "expected_output": null,
+      "description": "Invalid - x7=0 violates x7>0 precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "x6": null,
+        "x7": 2
+      },
+      "expected_output": null,
+      "description": "Invalid - NULL array violates validity precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "x6": [
+          100
+        ],
+        "x7": 1
+      },
+      "expected_output": 100,
+      "description": "Boundary - minimal valid x7=1",
+      "validation_status": "valid",
+      "actual_output": "100"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "x6": [
+          5,
+          6
+        ],
+        "x7": 2
+      },
+      "expected_output": 5,
+      "description": "Boundary - array exactly size x7=2",
+      "validation_status": "valid",
+      "actual_output": "5"
+    }
+  ]
+}

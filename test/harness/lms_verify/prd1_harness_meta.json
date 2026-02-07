@@ -1,0 +1,109 @@
+{
+  "source_file": "./data/lms_verify/prd1.c",
+  "function_name": "minus1",
+  "function_signature": "int minus1(int x)",
+  "preconditions": [
+    "is_pos(x)"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x": 2
+      },
+      "expected_output": 1,
+      "description": "Valid input x=2",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x": 5
+      },
+      "expected_output": 4,
+      "description": "Valid input x=5",
+      "validation_status": "valid",
+      "actual_output": "4"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x": 10
+      },
+      "expected_output": 9,
+      "description": "Valid input x=10",
+      "validation_status": "valid",
+      "actual_output": "9"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x": 42
+      },
+      "expected_output": 41,
+      "description": "Valid input x=42",
+      "validation_status": "valid",
+      "actual_output": "41"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x": 100
+      },
+      "expected_output": 99,
+      "description": "Valid input x=100",
+      "validation_status": "valid",
+      "actual_output": "99"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "x": 0
+      },
+      "expected_output": null,
+      "description": "Invalid input x=0 (not positive)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "x": -5
+      },
+      "expected_output": null,
+      "description": "Invalid input x=-5 (negative)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "x": 1
+      },
+      "expected_output": 0,
+      "description": "Boundary case: minimum valid input x=1",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "x": 2
+      },
+      "expected_output": 1,
+      "description": "Boundary case: x=2 (next after minimum)",
+      "validation_status": "valid",
+      "actual_output": "1"
+    }
+  ]
+}

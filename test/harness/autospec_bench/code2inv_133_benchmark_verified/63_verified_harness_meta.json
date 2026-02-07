@@ -1,0 +1,120 @@
+{
+  "source_file": "./data/autospec_bench/code2inv_133_benchmark_verified/63_verified.c",
+  "function_name": "test_loop",
+  "function_signature": "int test_loop(int x, int y)",
+  "preconditions": [
+    "x >= 1",
+    "x <= 10",
+    "y == 0"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x": 1,
+        "y": 0
+      },
+      "expected_output": 1,
+      "description": "Valid input with x at lower boundary",
+      "validation_status": null,
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x": 2,
+        "y": 0
+      },
+      "expected_output": 2,
+      "description": "Valid input with small x",
+      "validation_status": null,
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x": 5,
+        "y": 0
+      },
+      "expected_output": 5,
+      "description": "Valid input with middle x",
+      "validation_status": null,
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x": 8,
+        "y": 0
+      },
+      "expected_output": 8,
+      "description": "Valid input with larger x",
+      "validation_status": null,
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x": 10,
+        "y": 0
+      },
+      "expected_output": 10,
+      "description": "Valid input with x at upper boundary",
+      "validation_status": null,
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "x": 0,
+        "y": 0
+      },
+      "expected_output": -1,
+      "description": "Invalid input: x less than 1",
+      "validation_status": null,
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "x": 5,
+        "y": 1
+      },
+      "expected_output": -1,
+      "description": "Invalid input: y not zero",
+      "validation_status": null,
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "x": 1,
+        "y": 0
+      },
+      "expected_output": 1,
+      "description": "Boundary valid input with x=1",
+      "validation_status": null,
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "x": 10,
+        "y": 0
+      },
+      "expected_output": 10,
+      "description": "Boundary valid input with x=10",
+      "validation_status": null,
+      "actual_output": null
+    }
+  ]
+}

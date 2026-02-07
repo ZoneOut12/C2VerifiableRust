@@ -1,0 +1,89 @@
+{
+  "source_file": "./data/autospec_bench/code2inv_133_benchmark_verified/36_verified.c",
+  "function_name": "main",
+  "function_signature": "int main()",
+  "preconditions": [],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Loop never entered, c remains 0",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Loop runs once, increments c to 1",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Loop runs multiple times, c reaches 40",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "c resets from 40 to 1 after loop iteration",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "c increments to 39 through multiple loop iterations",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Loop never entered (c = 0)",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {},
+      "expected_output": null,
+      "description": "c reaches maximum allowed value of 40",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Hypothetical violation of loop invariant (c > 40)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Hypothetical violation of loop invariant (c < 0)",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

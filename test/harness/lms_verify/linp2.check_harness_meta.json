@@ -1,0 +1,139 @@
+{
+  "source_file": "./data/lms_verify/linp2.check.c",
+  "function_name": "index_",
+  "function_signature": "int index_(int x0, int x1, int x2, int x3)",
+  "preconditions": [
+    "0 < x0 < 100",
+    "0 < x1 < 100",
+    "0 <= x2 < x0",
+    "0 <= x3 < x1"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x0": 50,
+        "x1": 50,
+        "x2": 25,
+        "x3": 25
+      },
+      "expected_output": 1275,
+      "description": "Normal values within valid ranges",
+      "validation_status": "valid",
+      "actual_output": "1275"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x0": 2,
+        "x1": 3,
+        "x2": 1,
+        "x3": 2
+      },
+      "expected_output": 5,
+      "description": "Minimum valid dimensions with edge values",
+      "validation_status": "valid",
+      "actual_output": "5"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x0": 99,
+        "x1": 99,
+        "x2": 0,
+        "x3": 0
+      },
+      "expected_output": 0,
+      "description": "Maximum allowed dimensions with zero indices",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x0": 10,
+        "x1": 20,
+        "x2": 9,
+        "x3": 19
+      },
+      "expected_output": 199,
+      "description": "Edge values for indices (x2=x0-1, x3=x1-1)",
+      "validation_status": "valid",
+      "actual_output": "199"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x0": 5,
+        "x1": 5,
+        "x2": 4,
+        "x3": 4
+      },
+      "expected_output": 24,
+      "description": "Maximum indices for square matrix",
+      "validation_status": "valid",
+      "actual_output": "24"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "x0": 0,
+        "x1": 50,
+        "x2": 0,
+        "x3": 0
+      },
+      "expected_output": null,
+      "description": "x0 <= 0 violates precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "x0": 5,
+        "x1": 5,
+        "x2": 5,
+        "x3": 4
+      },
+      "expected_output": null,
+      "description": "x2 >= x0 violates precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "x0": 1,
+        "x1": 1,
+        "x2": 0,
+        "x3": 0
+      },
+      "expected_output": 0,
+      "description": "Minimum valid dimensions (1x1 matrix)",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "x0": 99,
+        "x1": 99,
+        "x2": 98,
+        "x3": 98
+      },
+      "expected_output": 9800,
+      "description": "Maximum dimensions with maximum indices",
+      "validation_status": "valid",
+      "actual_output": "9800"
+    }
+  ]
+}

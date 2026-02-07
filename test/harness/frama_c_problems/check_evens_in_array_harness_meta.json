@@ -1,0 +1,150 @@
+{
+  "source_file": "./data/frama_c_problems/check_evens_in_array.c",
+  "function_name": "areElementsEven",
+  "function_signature": "int areElementsEven(int *a, int n)",
+  "preconditions": [
+    "n > 0",
+    "\\valid_read(a+(0..(n-1)))"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          2,
+          4,
+          6,
+          8,
+          10
+        ],
+        "n": 5
+      },
+      "expected_output": 1,
+      "description": "All elements even",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          2,
+          3,
+          4
+        ],
+        "n": 3
+      },
+      "expected_output": 0,
+      "description": "Contains odd element",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          4
+        ],
+        "n": 1
+      },
+      "expected_output": 1,
+      "description": "Single even element",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          5
+        ],
+        "n": 1
+      },
+      "expected_output": 0,
+      "description": "Single odd element",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "n": 10
+      },
+      "expected_output": 1,
+      "description": "All zeros (even)",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "a": [
+          0
+        ],
+        "n": 0
+      },
+      "expected_output": null,
+      "description": "n = 0 violates n > 0",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "a": null,
+        "n": 3
+      },
+      "expected_output": null,
+      "description": "NULL array pointer",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "a": [
+          2
+        ],
+        "n": 1
+      },
+      "expected_output": 1,
+      "description": "Minimum valid n with even",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "a": [
+          3
+        ],
+        "n": 1
+      },
+      "expected_output": 0,
+      "description": "Minimum valid n with odd",
+      "validation_status": "valid",
+      "actual_output": "0"
+    }
+  ]
+}

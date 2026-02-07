@@ -1,0 +1,118 @@
+{
+  "source_file": "./data/frama_c_problems/sample.c",
+  "function_name": "fun",
+  "function_signature": "int fun(int x, int y)",
+  "preconditions": [
+    "x >= 0 && y > 0"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x": 10,
+        "y": 2
+      },
+      "expected_output": 5,
+      "description": "Valid - normal division (10/2=5)",
+      "validation_status": "valid",
+      "actual_output": "5"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x": 0,
+        "y": 5
+      },
+      "expected_output": 0,
+      "description": "Valid - zero dividend (0/5=0)",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x": 7,
+        "y": 7
+      },
+      "expected_output": 1,
+      "description": "Valid - dividend equals divisor (7/7=1)",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x": 15,
+        "y": 3
+      },
+      "expected_output": 5,
+      "description": "Valid - multiple subtractions (15/3=5)",
+      "validation_status": "valid",
+      "actual_output": "5"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x": 4,
+        "y": 1
+      },
+      "expected_output": 4,
+      "description": "Valid - divisor is 1 (4/1=4)",
+      "validation_status": "valid",
+      "actual_output": "4"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "x": -1,
+        "y": 3
+      },
+      "expected_output": -1,
+      "description": "x < 0, violating x >= 0 precondition",
+      "validation_status": null,
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "x": 5,
+        "y": 0
+      },
+      "expected_output": 5,
+      "description": "y <= 0, violating y > 0 precondition",
+      "validation_status": null,
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "x": 0,
+        "y": 1
+      },
+      "expected_output": 0,
+      "description": "Boundary - minimum allowed x (0/1=0)",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "x": 5,
+        "y": 5
+      },
+      "expected_output": 1,
+      "description": "Boundary - dividend equals divisor (5/5=1)",
+      "validation_status": "valid",
+      "actual_output": "1"
+    }
+  ]
+}

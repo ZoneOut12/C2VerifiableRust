@@ -1,0 +1,156 @@
+{
+  "source_file": "./data/lms_verify/ex7.check.c",
+  "function_name": "member",
+  "function_signature": "int member(int *x0, int x1, int x2)",
+  "preconditions": [
+    "(x1>0)",
+    "\\valid(x0+(0..x1-1))"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x0": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "x1": 4,
+        "x2": 3
+      },
+      "expected_output": 2,
+      "description": "Valid - element found in middle of array",
+      "validation_status": "valid",
+      "actual_output": "2"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x0": [
+          5,
+          6,
+          7
+        ],
+        "x1": 3,
+        "x2": 4
+      },
+      "expected_output": -1,
+      "description": "Valid - element not found",
+      "validation_status": "valid",
+      "actual_output": "-1"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x0": [
+          10,
+          20,
+          30
+        ],
+        "x1": 3,
+        "x2": 10
+      },
+      "expected_output": 0,
+      "description": "Valid - element found at first position",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x0": [
+          10,
+          20,
+          30
+        ],
+        "x1": 3,
+        "x2": 30
+      },
+      "expected_output": 2,
+      "description": "Valid - element found at last position",
+      "validation_status": "valid",
+      "actual_output": "2"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x0": [
+          42
+        ],
+        "x1": 1,
+        "x2": 42
+      },
+      "expected_output": 0,
+      "description": "Valid - single element array with match",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "x0": [
+          1,
+          2,
+          3
+        ],
+        "x1": 0,
+        "x2": 1
+      },
+      "expected_output": null,
+      "description": "Invalid - x1 equals zero",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "x0": null,
+        "x1": 3,
+        "x2": 1
+      },
+      "expected_output": null,
+      "description": "Invalid - null pointer for array",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "x0": [
+          5
+        ],
+        "x1": 1,
+        "x2": 6
+      },
+      "expected_output": -1,
+      "description": "Boundary - single element array with no match",
+      "validation_status": "valid",
+      "actual_output": "-1"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "x0": [
+          0,
+          1
+        ],
+        "x1": 2,
+        "x2": 1
+      },
+      "expected_output": 1,
+      "description": "Boundary - two element array with match at last position",
+      "validation_status": "valid",
+      "actual_output": "1"
+    }
+  ]
+}

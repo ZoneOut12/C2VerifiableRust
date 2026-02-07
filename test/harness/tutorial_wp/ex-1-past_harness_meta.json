@@ -1,0 +1,119 @@
+{
+  "source_file": "./data/tutorial_wp/ex-1-past.c",
+  "function_name": "distance",
+  "function_signature": "int distance(int a, int b)",
+  "preconditions": [
+    "a < b  ==> b - a <= INT_MAX",
+    "b <= a ==> a - b <= INT_MAX"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": 3,
+        "b": 5
+      },
+      "expected_output": 2,
+      "description": "Normal case where a < b and difference is within INT_MAX",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": 5,
+        "b": 3
+      },
+      "expected_output": 2,
+      "description": "Normal case where a > b and difference is within INT_MAX",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": "INT_MAX",
+        "b": 0
+      },
+      "expected_output": "INT_MAX",
+      "description": "a is INT_MAX and b is 0, difference equals INT_MAX",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "a": 0,
+        "b": "INT_MAX"
+      },
+      "expected_output": "INT_MAX",
+      "description": "a is 0 and b is INT_MAX, difference equals INT_MAX",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": -5,
+        "b": -3
+      },
+      "expected_output": 2,
+      "description": "Negative numbers where a < b",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "a": 0,
+        "b": "INT_MAX"
+      },
+      "expected_output": "INT_MAX",
+      "description": "Boundary case with maximum possible difference allowed",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "a": "INT_MIN + 1",
+        "b": 0
+      },
+      "expected_output": "INT_MAX",
+      "description": "Boundary case with a = INT_MIN + 1 and b = 0",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "a": "INT_MIN",
+        "b": 0
+      },
+      "expected_output": null,
+      "description": "a is INT_MIN and b is 0, causing overflow in b - a calculation",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "a": 0,
+        "b": "INT_MIN"
+      },
+      "expected_output": null,
+      "description": "b is INT_MIN and a is 0, causing overflow in a - b calculation",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

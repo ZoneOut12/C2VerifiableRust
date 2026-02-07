@@ -1,0 +1,119 @@
+{
+  "source_file": "./data/tutorial_wp/ex-1-simple-answer.c",
+  "function_name": "incr_a_by_b",
+  "function_signature": "void incr_a_by_b(int* a, int const* b)",
+  "preconditions": [
+    "\\valid(a) && \\valid_read(b)",
+    "INT_MIN <= *a + *b <= INT_MAX"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": 5,
+        "b": 10
+      },
+      "expected_output": 15,
+      "description": "Normal addition with positive values",
+      "validation_status": "valid",
+      "actual_output": "15"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": -3,
+        "b": 5
+      },
+      "expected_output": 2,
+      "description": "Mixed sign addition",
+      "validation_status": "valid",
+      "actual_output": "2"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": 2147483647,
+        "b": 0
+      },
+      "expected_output": 2147483647,
+      "description": "Addition with INT_MAX",
+      "validation_status": "valid",
+      "actual_output": "2147483647"
+    },
+    {
+      "test_id": 4,
+      "type": "boundary",
+      "inputs": {
+        "a": -2147483648,
+        "b": 0
+      },
+      "expected_output": -2147483648,
+      "description": "Addition with INT_MIN",
+      "validation_status": "valid",
+      "actual_output": "-2147483648"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": 0,
+        "b": 0
+      },
+      "expected_output": 0,
+      "description": "Zero addition",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "a": null,
+        "b": 5
+      },
+      "expected_output": null,
+      "description": "NULL pointer for a",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "a": 2147483647,
+        "b": 1
+      },
+      "expected_output": null,
+      "description": "Addition overflow (INT_MAX + 1)",
+      "validation_status": "valid",
+      "actual_output": ""
+    },
+    {
+      "test_id": 8,
+      "type": "valid",
+      "inputs": {
+        "a": 2147483642,
+        "b": 5
+      },
+      "expected_output": 2147483647,
+      "description": "Addition reaching INT_MAX exactly",
+      "validation_status": "valid",
+      "actual_output": "2147483647"
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "a": -2147483648,
+        "b": -1
+      },
+      "expected_output": null,
+      "description": "Addition underflow (INT_MIN - 1)",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

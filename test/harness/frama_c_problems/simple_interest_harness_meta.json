@@ -1,0 +1,104 @@
+{
+  "source_file": "./data/frama_c_problems/simple_interest.c",
+  "function_name": "simple",
+  "function_signature": "int simple(int p, int n, int r)",
+  "preconditions": [
+    "p >= 5000",
+    "r > 0 && r < 15",
+    "n > 0 && n < 5",
+    "p*n*r <= INT_MAX"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "p": 5000,
+        "n": 1,
+        "r": 1
+      },
+      "expected_output": 50,
+      "description": "Minimum valid values for all parameters",
+      "validation_status": "valid",
+      "actual_output": "50"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "p": 10000,
+        "n": 3,
+        "r": 10
+      },
+      "expected_output": 3000,
+      "description": "Example from original main function",
+      "validation_status": "valid",
+      "actual_output": "3000"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "p": 7500,
+        "n": 2,
+        "r": 5
+      },
+      "expected_output": 750,
+      "description": "Mid-range valid values",
+      "validation_status": "valid",
+      "actual_output": "750"
+    },
+    {
+      "test_id": 4,
+      "type": "boundary",
+      "inputs": {
+        "p": 5000,
+        "n": 4,
+        "r": 14
+      },
+      "expected_output": 2800,
+      "description": "Maximum valid n and r values",
+      "validation_status": "valid",
+      "actual_output": "2800"
+    },
+    {
+      "test_id": 5,
+      "type": "boundary",
+      "inputs": {
+        "p": 5000,
+        "n": 1,
+        "r": 14
+      },
+      "expected_output": 700,
+      "description": "Minimum n with maximum r",
+      "validation_status": "valid",
+      "actual_output": "700"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "p": 4999,
+        "n": 3,
+        "r": 10
+      },
+      "expected_output": 149970,
+      "description": "Invalid input where p < 5000",
+      "validation_status": null,
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "p": 5000,
+        "n": 2,
+        "r": 15
+      },
+      "expected_output": 150000,
+      "description": "Invalid input where r >= 15",
+      "validation_status": null,
+      "actual_output": null
+    }
+  ]
+}

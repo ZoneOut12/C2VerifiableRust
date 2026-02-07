@@ -1,0 +1,138 @@
+{
+  "source_file": "./data/tutorial_wp/ex-1-forall-exists-answer.c",
+  "function_name": "forall_pred",
+  "function_signature": "int forall_pred(const int* array, size_t len)",
+  "preconditions": [
+    "\\valid_read(array + (0 .. len-1))"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "array": [
+          0,
+          21,
+          42
+        ],
+        "len": 3
+      },
+      "expected_output": 1,
+      "description": "Valid - all elements within range",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "array": [
+          42
+        ],
+        "len": 1
+      },
+      "expected_output": 1,
+      "description": "Valid - single element at upper bound",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "array": [
+          43
+        ],
+        "len": 1
+      },
+      "expected_output": 0,
+      "description": "Valid - single element outside range",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "array": [
+          -1,
+          -2,
+          -3
+        ],
+        "len": 3
+      },
+      "expected_output": 0,
+      "description": "Valid - all elements below range",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "array": [],
+        "len": 0
+      },
+      "expected_output": 1,
+      "description": "Valid - empty array",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "array": "NULL",
+        "len": 2
+      },
+      "expected_output": null,
+      "description": "Invalid - NULL array with len > 0",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "array": [
+          1,
+          2
+        ],
+        "len": 3
+      },
+      "expected_output": null,
+      "description": "Invalid - array shorter than len",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "array": [
+          0
+        ],
+        "len": 1
+      },
+      "expected_output": 1,
+      "description": "Boundary - single element at lower bound",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "array": [
+          0,
+          42
+        ],
+        "len": 2
+      },
+      "expected_output": 1,
+      "description": "Boundary - elements at both bounds",
+      "validation_status": "valid",
+      "actual_output": "1"
+    }
+  ]
+}

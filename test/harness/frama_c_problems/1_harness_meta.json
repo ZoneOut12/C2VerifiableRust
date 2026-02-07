@@ -1,0 +1,89 @@
+{
+  "source_file": "./data/frama_c_problems/1.c",
+  "function_name": "main",
+  "function_signature": "int main()",
+  "preconditions": [],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": 0,
+      "description": "Normal execution with i initialized to 0",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": 0,
+      "description": "Repeated execution with same initial conditions",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": 0,
+      "description": "Execution with no external interference",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": 0,
+      "description": "Execution in standard environment",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": 0,
+      "description": "Execution with default compiler optimizations",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {},
+      "expected_output": 0,
+      "description": "Execution when i starts at minimum allowed value (0)",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {},
+      "expected_output": 0,
+      "description": "Execution when i reaches maximum allowed value (30)",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Attempt to violate non-existent preconditions",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Attempt to violate loop invariant through external means",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

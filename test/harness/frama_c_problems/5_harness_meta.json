@@ -1,0 +1,146 @@
+{
+  "source_file": "./data/frama_c_problems/5.c",
+  "function_name": "fun",
+  "function_signature": "int fun(int x, int y, int *r)",
+  "preconditions": [
+    "x >= y && x > 0 && y > 0",
+    "\\valid(r)"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x": 10,
+        "y": 3,
+        "r": [
+          0
+        ]
+      },
+      "expected_output": 3,
+      "description": "Normal case: x=10, y=3, remainder 1",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x": 5,
+        "y": 5,
+        "r": [
+          0
+        ]
+      },
+      "expected_output": 1,
+      "description": "x equals y, remainder 0",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x": 7,
+        "y": 2,
+        "r": [
+          0
+        ]
+      },
+      "expected_output": 3,
+      "description": "x=7, y=2, remainder 1",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x": 20,
+        "y": 5,
+        "r": [
+          0
+        ]
+      },
+      "expected_output": 4,
+      "description": "x=20, y=5, remainder 0",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x": 15,
+        "y": 4,
+        "r": [
+          0
+        ]
+      },
+      "expected_output": 3,
+      "description": "x=15, y=4, remainder 3",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "x": 3,
+        "y": 5,
+        "r": [
+          0
+        ]
+      },
+      "expected_output": null,
+      "description": "x < y violates precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "x": 5,
+        "y": -2,
+        "r": [
+          0
+        ]
+      },
+      "expected_output": null,
+      "description": "y <= 0 violates precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "x": 5,
+        "y": 5,
+        "r": [
+          0
+        ]
+      },
+      "expected_output": 1,
+      "description": "x equals y, remainder 0",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "x": 5,
+        "y": 1,
+        "r": [
+          0
+        ]
+      },
+      "expected_output": 5,
+      "description": "y=1, x=5, remainder 0",
+      "validation_status": "compile_error",
+      "actual_output": null
+    }
+  ]
+}

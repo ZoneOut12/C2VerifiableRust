@@ -1,0 +1,109 @@
+{
+  "source_file": "./data/tutorial_wp/random_loop.c",
+  "function_name": "random_loop",
+  "function_signature": "void random_loop(size_t bound)",
+  "preconditions": [
+    "bound >= 0"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "bound": 2
+      },
+      "expected_output": null,
+      "description": "Valid case with bound = 2",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "bound": 3
+      },
+      "expected_output": null,
+      "description": "Valid case with bound = 3",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "bound": 5
+      },
+      "expected_output": null,
+      "description": "Valid case with bound = 5",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "bound": 10
+      },
+      "expected_output": null,
+      "description": "Valid case with bound = 10",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "bound": 100
+      },
+      "expected_output": null,
+      "description": "Valid case with bound = 100",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "bound": -1
+      },
+      "expected_output": null,
+      "description": "Invalid case with bound = -1",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "bound": -5
+      },
+      "expected_output": null,
+      "description": "Invalid case with bound = -5",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "bound": 0
+      },
+      "expected_output": null,
+      "description": "Boundary case with bound = 0",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "bound": 1
+      },
+      "expected_output": null,
+      "description": "Boundary case with bound = 1",
+      "validation_status": "compile_error",
+      "actual_output": null
+    }
+  ]
+}

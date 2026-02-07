@@ -1,0 +1,109 @@
+{
+  "source_file": "./data/autospec_bench/code2inv_133_benchmark_verified/55_verified.c",
+  "function_name": "foo",
+  "function_signature": "void foo(int n)",
+  "preconditions": [
+    "n > 0"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "n": 3
+      },
+      "expected_output": null,
+      "description": "Valid input n=3",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "n": 4
+      },
+      "expected_output": null,
+      "description": "Valid input n=4",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "n": 5
+      },
+      "expected_output": null,
+      "description": "Valid input n=5",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "n": 10
+      },
+      "expected_output": null,
+      "description": "Valid input n=10",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "n": 7
+      },
+      "expected_output": null,
+      "description": "Valid input n=7",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "n": 1
+      },
+      "expected_output": null,
+      "description": "Boundary case n=1 (minimum valid)",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "n": 2
+      },
+      "expected_output": null,
+      "description": "Boundary case n=2",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "n": 0
+      },
+      "expected_output": null,
+      "description": "Invalid input n=0 (violates n > 0)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "n": -1
+      },
+      "expected_output": null,
+      "description": "Invalid input n=-1 (violates n > 0)",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

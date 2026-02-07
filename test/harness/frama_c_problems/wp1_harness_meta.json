@@ -1,0 +1,119 @@
+{
+  "source_file": "./data/frama_c_problems/wp1.c",
+  "function_name": "function",
+  "function_signature": "int function(int x, int y)",
+  "preconditions": [
+    "-10 <= x <= 0",
+    "0 <= y <= 5"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x": -5,
+        "y": 2
+      },
+      "expected_output": 2,
+      "description": "Mid-range valid inputs",
+      "validation_status": "valid",
+      "actual_output": "2"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x": -10,
+        "y": 3
+      },
+      "expected_output": -2,
+      "description": "x at minimum with mid-range y",
+      "validation_status": "valid",
+      "actual_output": "-2"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x": -2,
+        "y": 0
+      },
+      "expected_output": 3,
+      "description": "x mid-range with y at minimum",
+      "validation_status": "valid",
+      "actual_output": "3"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x": -7,
+        "y": 5
+      },
+      "expected_output": 3,
+      "description": "x mid-range with y at maximum",
+      "validation_status": "valid",
+      "actual_output": "3"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x": 0,
+        "y": 2
+      },
+      "expected_output": 7,
+      "description": "x at maximum with mid-range y",
+      "validation_status": "valid",
+      "actual_output": "7"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "x": -10,
+        "y": 5
+      },
+      "expected_output": 0,
+      "description": "x at minimum and y at maximum",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "x": 0,
+        "y": 0
+      },
+      "expected_output": 5,
+      "description": "x at maximum and y at minimum",
+      "validation_status": "valid",
+      "actual_output": "5"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "x": -11,
+        "y": 2
+      },
+      "expected_output": null,
+      "description": "x below minimum bound",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "x": -5,
+        "y": 6
+      },
+      "expected_output": null,
+      "description": "y above maximum bound",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

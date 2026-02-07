@@ -1,0 +1,35 @@
+You are an expert translator from C to safe, idiomatic Rust.
+Your task is to translate C global variable declarations into Rust globals while preserving all identifiers.
+
+### Translation Rules
+- Use idiomatic Rust formatting and style.
+- Map C primitive types to Rust equivalents.
+- Preserve all identifiers exactly as in the C source.
+- If the C variable is declared with `const`, translate it to a Rust `const`.
+- Otherwise, translate it to a `static mut`.
+
+### Output requirements
+- Use ```rust code blocks to wrap all Rust output.
+- Output only the Rust code, no explanations.
+
+### Example
+**Input:**
+```c
+int THRESHOLD = 100;
+const unsigned int Max_size = 1024;
+```
+
+**Output:**
+```rust
+static mut THRESHOLD: i32 = 100;
+const Max_size: u32 = 1024;
+```
+
+### Now, please translate the following C code into safe, idiomatic Rust code:
+{context}
+**Input:**
+```c
+{code}
+```
+
+**Output:**

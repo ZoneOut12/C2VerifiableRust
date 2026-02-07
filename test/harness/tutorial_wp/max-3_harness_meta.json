@@ -1,0 +1,92 @@
+{
+  "source_file": "./data/tutorial_wp/max-3.c",
+  "function_name": "max",
+  "function_signature": "int max(int a, int b)",
+  "preconditions": [],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": 5,
+        "b": 3
+      },
+      "expected_output": 5,
+      "description": "a greater than b",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": -2,
+        "b": 10
+      },
+      "expected_output": 10,
+      "description": "b greater than a with negative a",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": -5,
+        "b": -5
+      },
+      "expected_output": -5,
+      "description": "a and b equal and negative",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "a": -1,
+        "b": -10
+      },
+      "expected_output": -1,
+      "description": "a greater than b with both negative",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": 5,
+        "b": -3
+      },
+      "expected_output": 5,
+      "description": "a positive and b negative",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "a": "INT_MAX",
+        "b": "INT_MAX"
+      },
+      "expected_output": "INT_MAX",
+      "description": "a and b at maximum integer value",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "a": "INT_MIN",
+        "b": -100
+      },
+      "expected_output": -100,
+      "description": "a at minimum integer value and b larger",
+      "validation_status": "compile_error",
+      "actual_output": null
+    }
+  ]
+}

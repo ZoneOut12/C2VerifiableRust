@@ -1,0 +1,187 @@
+{
+  "source_file": "./data/frama_c_problems/equal_arrays.c",
+  "function_name": "check",
+  "function_signature": "int check(int *a, int *b, int n)",
+  "preconditions": [
+    "n > 0",
+    "\\valid_read (a + (0..n-1))",
+    "\\valid_read (b + (0..n-1))"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "b": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "n": 5
+      },
+      "expected_output": 1,
+      "description": "Equal arrays with n=5",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          1,
+          2,
+          3
+        ],
+        "b": [
+          1,
+          9,
+          3
+        ],
+        "n": 3
+      },
+      "expected_output": 0,
+      "description": "Arrays differ at index 1 with n=3",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          10,
+          20,
+          30
+        ],
+        "b": [
+          10,
+          20,
+          40
+        ],
+        "n": 3
+      },
+      "expected_output": 0,
+      "description": "Arrays differ at last element with n=3",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          42
+        ],
+        "b": [
+          42
+        ],
+        "n": 1
+      },
+      "expected_output": 1,
+      "description": "Equal arrays with n=1 (boundary)",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "b": [
+          5,
+          5,
+          6,
+          5
+        ],
+        "n": 4
+      },
+      "expected_output": 0,
+      "description": "Arrays differ at index 2 with n=4",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "a": [
+          100
+        ],
+        "b": [
+          100
+        ],
+        "n": 1
+      },
+      "expected_output": 1,
+      "description": "Minimum valid n=1 with equal elements",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "a": [
+          50
+        ],
+        "b": [
+          60
+        ],
+        "n": 1
+      },
+      "expected_output": 0,
+      "description": "Minimum valid n=1 with different elements",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "a": [
+          0
+        ],
+        "b": [
+          0
+        ],
+        "n": 0
+      },
+      "expected_output": null,
+      "description": "n=0 violates n>0 precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "a": null,
+        "b": [
+          1,
+          2,
+          3
+        ],
+        "n": 3
+      },
+      "expected_output": null,
+      "description": "a=NULL violates \\valid_read precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

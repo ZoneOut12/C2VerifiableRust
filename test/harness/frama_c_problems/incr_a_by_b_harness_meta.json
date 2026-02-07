@@ -1,0 +1,120 @@
+{
+  "source_file": "./data/frama_c_problems/incr_a_by_b.c",
+  "function_name": "incr_a_by_b",
+  "function_signature": "int incr_a_by_b(int* a, int const* b)",
+  "preconditions": [
+    "INT_MIN <= *a + *b <= INT_MAX",
+    "\\valid(a) && \\valid_read(b)",
+    "\\separated(a, b)"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": 5,
+        "b": 3
+      },
+      "expected_output": "test_case_1: a=8, result=8",
+      "description": "Valid case with positive integers",
+      "validation_status": "valid",
+      "actual_output": "test_case_1: a=8, result=8"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": -2,
+        "b": -3
+      },
+      "expected_output": "test_case_2: a=-5, result=-5",
+      "description": "Valid case with negative integers",
+      "validation_status": "valid",
+      "actual_output": "test_case_2: a=-5, result=-5"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": 10,
+        "b": -5
+      },
+      "expected_output": "test_case_3: a=5, result=5",
+      "description": "Valid case with mixed sign integers",
+      "validation_status": "valid",
+      "actual_output": "test_case_3: a=5, result=5"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "a": 0,
+        "b": 42
+      },
+      "expected_output": "test_case_4: a=42, result=42",
+      "description": "Valid case with zero and positive integer",
+      "validation_status": "valid",
+      "actual_output": "test_case_4: a=42, result=42"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": -100,
+        "b": 100
+      },
+      "expected_output": "test_case_5: a=0, result=0",
+      "description": "Valid case with zero sum",
+      "validation_status": "valid",
+      "actual_output": "test_case_5: a=0, result=0"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "a": 2147483647,
+        "b": 0
+      },
+      "expected_output": "test_case_6: a=2147483647, result=2147483647",
+      "description": "Boundary case with sum equal to INT_MAX",
+      "validation_status": "valid",
+      "actual_output": "test_case_6: a=2147483647, result=2147483647"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "a": -2147483648,
+        "b": 0
+      },
+      "expected_output": "test_case_7: a=-2147483648, result=-2147483648",
+      "description": "Boundary case with sum equal to INT_MIN",
+      "validation_status": "valid",
+      "actual_output": "test_case_7: a=-2147483648, result=-2147483648"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "a": null,
+        "b": 5
+      },
+      "expected_output": null,
+      "description": "Invalid case with NULL pointer for a",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "a": 5,
+        "b": 5
+      },
+      "expected_output": null,
+      "description": "Invalid case with overlapping pointers",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

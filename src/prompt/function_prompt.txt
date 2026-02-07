@@ -1,0 +1,106 @@
+You are an expert translator from C to safe, idiomatic Rust.
+Your task is to translate C functions into safe, idiomatic Rust functions.
+
+### Translation Rules
+- The translated Rust function should be a line-by-line reimplementation, preserving all control flow, comments, and naming from the original C source.
+- Preserve all identifiers (function names, parameters, locals) exactly as in the C code.
+- If a C function is declared but not defined, translate it into a Rust function with body `unimplemented!();`.
+- Always convert `for` loops in C into semantically equivalent `while` loops in Rust.
+- Use Rust references (`&T`, `&mut T`) instead of C pointers (`T*`), following C’s mutability semantics.
+- Avoid using raw pointers (`*const T`, `*mut T`) or pointer conversion methods (`as_ptr`, `as_mut_ptr`, casting, etc.).
+- Avoid using `unsafe` blocks in Rust unless absolutely necessary.
+- Do not alter control structure or use functional abstractions (e.g., iterators, `split_at_mut`).
+- No new comments may be introduced; only preserve existing C comments.
+
+### Output requirements
+- Use ```rust code blocks to wrap all Rust output.
+- Output only the Rust code, no explanations.
+
+### Guidelines:
+1. **Pointer Conversion**:
+    - Translate C pointers (`T*`) to Rust references: use `&T` for immutable pointers and `&mut T` for mutable pointers.
+    - Use `&mut T` **only if** the C code modifies the data pointed to by the pointer.
+    - If the data pointed to is only read (not modified), use `&T`.
+
+2. **Array Handling**:
+    - Convert C arrays or pointers(e.g., `int*`) to Rust slices (`&[i32]` or `&mut [i32]`) as appropriate.
+
+3. **Specialization for `char*` and `char`**:
+    - For `char*` or `char[]`:
+        - If **immutable** and points to contiguous character data (i.e. a C string), convert to `&str`.
+        - If **mutable**, treat as a writable string buffer; convert to `&mut String`.
+    - For single `char` values:
+        - Convert to Rust `char`.
+
+4. **Function Parameters and Return Types**:
+    - Adjust function signatures to use Rust references instead of pointers.
+    - Do not change the function name, argument list and argument names.
+    - For functions returning pointers, consider returning `Option<&T>` or `Option<&mut T>` in Rust.
+
+5. **Loop Translation**:
+    - **All `for` loops in C **must** be translated to explicit `while` loops in Rust**, preserving initialization, condition check, and increment statements as separate components.
+
+6. **Variable Declarations**:
+    - Every variable in the translated Rust code must include an explicit type annotation, even if it is initialized immediately.
+
+### Examples
+*Example1:*
+Input:
+```c
+void reverse(int* arr, int len){{
+    for (int i = 0; i < len / 2; i++) {{
+        // verus_assert(2);
+        int tmp = arr[i];
+        arr[i] = arr[len - 1 - i];
+        arr[len - 1 - i] = tmp;
+    }}
+}}
+```
+Output:
+```rust
+fn reverse(arr: &mut [i32], len: i32) {{
+    let mut i: i32 = 0;
+    while i < len / 2 {{
+        // verus_assert(2);
+        let tmp: i32 = arr[i as usize];
+        arr[i as usize] = arr[(len - 1 - i) as usize];
+        arr[(len - 1 - i) as usize] = tmp;
+        i += 1;
+    }}
+}}
+```
+
+*Example2:*
+Input:
+```c
+int sum_vector(int* vec, int len) {{
+    int sum = 0;
+    // verus_assert(1);
+    for (int i = 0; i < len; i++) {{
+        sum += vec[i];
+    }}
+    return sum;
+}}
+```
+Output:
+```rust
+fn sum_vector(vec: &[i32], len: i32) -> i32 {{
+    let mut sum: i32 = 0;
+    // verus_assert(1);
+    let mut i: i32 = 0;
+    while i < len {{
+        sum += vec[i as usize];
+        i += 1;
+    }}
+    sum
+}}
+```
+
+### Now, please translate the following C code into safe, idiomatic Rust code:
+{context}
+*C Input:*
+```c
+{code}
+```
+
+*Output:*

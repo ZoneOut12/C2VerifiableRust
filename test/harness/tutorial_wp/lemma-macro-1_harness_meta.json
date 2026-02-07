@@ -1,0 +1,152 @@
+{
+  "source_file": "./data/tutorial_wp/lemma-macro-1.c",
+  "function_name": "bsearch_callee",
+  "function_signature": "unsigned bsearch_callee(int* arr, size_t len, int value)",
+  "preconditions": [
+    "\\valid_read(arr + (0 .. len-1))",
+    "element_level_sorted(arr, len)"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "arr": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "len": 5,
+        "value": 3
+      },
+      "expected_output": 0,
+      "description": "Valid sorted array with value present",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "arr": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "len": 5,
+        "value": 6
+      },
+      "expected_output": 0,
+      "description": "Valid sorted array with value not present",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "arr": [
+          2,
+          2,
+          2
+        ],
+        "len": 3,
+        "value": 2
+      },
+      "expected_output": 0,
+      "description": "Valid array with duplicate elements",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "arr": [
+          42
+        ],
+        "len": 1,
+        "value": 42
+      },
+      "expected_output": 0,
+      "description": "Valid single-element array",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "arr": null,
+        "len": 0,
+        "value": 5
+      },
+      "expected_output": 0,
+      "description": "Valid empty array (len=0)",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "arr": null,
+        "len": 3,
+        "value": 5
+      },
+      "expected_output": 0,
+      "description": "Null array pointer with len > 0 violates valid_read precondition",
+      "validation_status": null,
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "arr": [
+          2,
+          1,
+          3
+        ],
+        "len": 3,
+        "value": 1
+      },
+      "expected_output": 0,
+      "description": "Unsorted array violates element_level_sorted precondition",
+      "validation_status": null,
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "arr": null,
+        "len": 0,
+        "value": 10
+      },
+      "expected_output": 0,
+      "description": "Boundary empty array (len=0)",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "arr": [
+          5
+        ],
+        "len": 1,
+        "value": 5
+      },
+      "expected_output": 0,
+      "description": "Boundary single-element array (len=1)",
+      "validation_status": "valid",
+      "actual_output": "0"
+    }
+  ]
+}

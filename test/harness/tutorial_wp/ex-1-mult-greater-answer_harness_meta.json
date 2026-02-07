@@ -1,0 +1,128 @@
+{
+  "source_file": "./data/tutorial_wp/ex-1-mult-greater-answer.c",
+  "function_name": "mult",
+  "function_signature": "int mult(int x, int y, int z)",
+  "preconditions": [
+    "x >= 0",
+    "y <= z"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x": 2,
+        "y": 3,
+        "z": 5
+      },
+      "expected_output": 6,
+      "description": "Valid case with x positive, y < z",
+      "validation_status": "valid",
+      "actual_output": "6"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x": 0,
+        "y": -5,
+        "z": 10
+      },
+      "expected_output": 0,
+      "description": "Valid case with x=0, y < z",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x": 5,
+        "y": 5,
+        "z": 5
+      },
+      "expected_output": 25,
+      "description": "Valid case with y == z",
+      "validation_status": "valid",
+      "actual_output": "25"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x": 1,
+        "y": -1,
+        "z": 0
+      },
+      "expected_output": -1,
+      "description": "Valid case with x positive, y negative, y < z",
+      "validation_status": "valid",
+      "actual_output": "-1"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x": 10,
+        "y": 2,
+        "z": 2
+      },
+      "expected_output": 20,
+      "description": "Valid case with y == z",
+      "validation_status": "valid",
+      "actual_output": "20"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "expected_output": 0,
+      "description": "Boundary case with all zeros",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "x": 1,
+        "y": 2147483647,
+        "z": 2147483647
+      },
+      "expected_output": 2147483647,
+      "description": "Boundary case with max integers",
+      "validation_status": "valid",
+      "actual_output": "2147483647"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "x": -1,
+        "y": 3,
+        "z": 5
+      },
+      "expected_output": null,
+      "description": "Invalid case with x < 0",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "x": 4,
+        "y": 5,
+        "z": 3
+      },
+      "expected_output": null,
+      "description": "Invalid case with y > z",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "source_file": "./data/tutorial_wp/ex-1-days-month-answer.c",
+  "function_name": "day_of",
+  "function_signature": "int day_of(int m, int y)",
+  "preconditions": [
+    "1 <= m <= 12"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "m": 2,
+        "y": 2000
+      },
+      "expected_output": 29,
+      "description": "February in a leap year (div by 400)",
+      "validation_status": "valid",
+      "actual_output": "29"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "m": 2,
+        "y": 1900
+      },
+      "expected_output": 28,
+      "description": "February in non-leap year (div by 100 but not 400)",
+      "validation_status": "valid",
+      "actual_output": "28"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "m": 4,
+        "y": 2021
+      },
+      "expected_output": 30,
+      "description": "April (30 days)",
+      "validation_status": "valid",
+      "actual_output": "30"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "m": 5,
+        "y": 2022
+      },
+      "expected_output": 31,
+      "description": "May (31 days)",
+      "validation_status": "valid",
+      "actual_output": "31"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "m": 8,
+        "y": 2023
+      },
+      "expected_output": 31,
+      "description": "August (31 days)",
+      "validation_status": "valid",
+      "actual_output": "31"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "m": 0,
+        "y": 2020
+      },
+      "expected_output": null,
+      "description": "Month less than 1",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "m": 13,
+        "y": 2020
+      },
+      "expected_output": null,
+      "description": "Month greater than 12",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "m": 1,
+        "y": 2024
+      },
+      "expected_output": 31,
+      "description": "Minimum valid month (January)",
+      "validation_status": "valid",
+      "actual_output": "31"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "m": 12,
+        "y": 2024
+      },
+      "expected_output": 31,
+      "description": "Maximum valid month (December)",
+      "validation_status": "valid",
+      "actual_output": "31"
+    }
+  ]
+}

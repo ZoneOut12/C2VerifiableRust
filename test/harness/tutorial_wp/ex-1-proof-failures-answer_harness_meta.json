@@ -1,0 +1,118 @@
+{
+  "source_file": "./data/tutorial_wp/ex-1-proof-failures-answer.c",
+  "function_name": "test",
+  "function_signature": "void test(int a, int b)",
+  "preconditions": [
+    "INT_MIN < b - a <= INT_MAX"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": 5,
+        "b": 10
+      },
+      "expected_output": null,
+      "description": "Valid case where b - a is positive and within range",
+      "validation_status": "valid",
+      "actual_output": "test_case_1: old=5, new=5"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": -5,
+        "b": 3
+      },
+      "expected_output": null,
+      "description": "Valid case where b - a is positive and within range",
+      "validation_status": "valid",
+      "actual_output": "test_case_2: old=8, new=8"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": -1000000,
+        "b": 1000000
+      },
+      "expected_output": null,
+      "description": "Valid case with large difference within range",
+      "validation_status": "valid",
+      "actual_output": "test_case_3: old=2000000, new=2000000"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "a": 0,
+        "b": 1
+      },
+      "expected_output": null,
+      "description": "Valid case with minimal positive difference",
+      "validation_status": "valid",
+      "actual_output": "test_case_4: old=1, new=1"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": 100,
+        "b": -50
+      },
+      "expected_output": null,
+      "description": "Valid case where b - a is negative but within range",
+      "validation_status": "valid",
+      "actual_output": "test_case_5: old=150, new=150"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "a": 0,
+        "b": -2147483648
+      },
+      "expected_output": null,
+      "description": "Invalid case where b - a equals INT_MIN",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "a": -2147483648,
+        "b": 2147483647
+      },
+      "expected_output": null,
+      "description": "Invalid case where b - a exceeds INT_MAX",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "a": 0,
+        "b": -2147483647
+      },
+      "expected_output": null,
+      "description": "Boundary case where b - a equals INT_MIN + 1",
+      "validation_status": "valid",
+      "actual_output": "test_case_8: old=2147483647, new=2147483647"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "a": 0,
+        "b": 2147483647
+      },
+      "expected_output": null,
+      "description": "Boundary case where b - a equals INT_MAX",
+      "validation_status": "valid",
+      "actual_output": "test_case_9: old=2147483647, new=2147483647"
+    }
+  ]
+}

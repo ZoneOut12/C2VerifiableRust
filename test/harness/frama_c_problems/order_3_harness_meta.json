@@ -1,0 +1,128 @@
+{
+  "source_file": "./data/frama_c_problems/order_3.c",
+  "function_name": "order_3",
+  "function_signature": "void order_3(int *a, int *b, int *c)",
+  "preconditions": [
+    "\\valid(a) && \\valid(b) && \\valid(c)",
+    "\\separated(a, b, c)"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": 5,
+        "b": 3,
+        "c": 4
+      },
+      "expected_output": "test_case_1: a=3, b=4, c=5",
+      "description": "Valid case with distinct values requiring full sorting",
+      "validation_status": "valid",
+      "actual_output": "test_case_1: a=3, b=4, c=5"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": 2,
+        "b": 2,
+        "c": 2
+      },
+      "expected_output": "test_case_2: a=2, b=2, c=2",
+      "description": "Valid case with all equal values",
+      "validation_status": "valid",
+      "actual_output": "test_case_2: a=2, b=2, c=2"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": 4,
+        "b": 3,
+        "c": 4
+      },
+      "expected_output": "test_case_3: a=3, b=4, c=4",
+      "description": "Valid case with duplicates in a and c",
+      "validation_status": "valid",
+      "actual_output": "test_case_3: a=3, b=4, c=4"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "a": 1,
+        "b": 2,
+        "c": 3
+      },
+      "expected_output": "test_case_4: a=1, b=2, c=3",
+      "description": "Valid case with already sorted values",
+      "validation_status": "valid",
+      "actual_output": "test_case_4: a=1, b=2, c=3"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": 3,
+        "b": 5,
+        "c": 4
+      },
+      "expected_output": "test_case_5: a=3, b=4, c=5",
+      "description": "Valid case requiring single swap",
+      "validation_status": "valid",
+      "actual_output": "test_case_5: a=3, b=4, c=5"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "a": null,
+        "b": 3,
+        "c": 4
+      },
+      "expected_output": null,
+      "description": "Invalid: NULL pointer for parameter a",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "a": 5,
+        "b": 5,
+        "c": 4
+      },
+      "expected_output": null,
+      "description": "Invalid: overlapping pointers for a and b",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "a": 3,
+        "b": 3,
+        "c": 4
+      },
+      "expected_output": "test_case_8: a=3, b=3, c=4",
+      "description": "Boundary case with duplicate min values",
+      "validation_status": "valid",
+      "actual_output": "test_case_8: a=3, b=3, c=4"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "a": 2,
+        "b": 3,
+        "c": 3
+      },
+      "expected_output": "test_case_9: a=2, b=3, c=3",
+      "description": "Boundary case with duplicate max values",
+      "validation_status": "valid",
+      "actual_output": "test_case_9: a=2, b=3, c=3"
+    }
+  ]
+}

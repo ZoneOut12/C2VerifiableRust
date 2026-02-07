@@ -1,0 +1,89 @@
+{
+  "source_file": "./data/tutorial_wp/first_loop-non-term-4.c",
+  "function_name": "main",
+  "function_signature": "int main()",
+  "preconditions": [],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Default execution path with initial i=0",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Another valid execution with same initial state",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Third valid execution with identical inputs",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Fourth valid execution with default values",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Fifth valid execution with standard initialization",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Invalid test case (no preconditions to violate)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Second invalid test case (no preconditions to violate)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Boundary case with minimal loop iterations",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Boundary case with maximal loop iterations",
+      "validation_status": "compile_error",
+      "actual_output": null
+    }
+  ]
+}

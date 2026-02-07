@@ -1,0 +1,109 @@
+{
+  "source_file": "./data/tutorial_wp/ex-1-sum-N-first-ints-answer.c",
+  "function_name": "sum_n",
+  "function_signature": "int sum_n(int n)",
+  "preconditions": [
+    "n*(n+1) <= 2*INT_MAX"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "n": 1
+      },
+      "expected_output": 1,
+      "description": "Valid case with n=1",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "n": 5
+      },
+      "expected_output": 15,
+      "description": "Valid case with n=5",
+      "validation_status": "valid",
+      "actual_output": "15"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "n": 100
+      },
+      "expected_output": 5050,
+      "description": "Valid case with n=100",
+      "validation_status": "valid",
+      "actual_output": "5050"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "n": 1000
+      },
+      "expected_output": 500500,
+      "description": "Valid case with n=1000",
+      "validation_status": "valid",
+      "actual_output": "500500"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "n": 12345
+      },
+      "expected_output": 76205685,
+      "description": "Valid case with n=12345",
+      "validation_status": "valid",
+      "actual_output": "76205685"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "n": 0
+      },
+      "expected_output": 0,
+      "description": "Boundary case n=0",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "n": 65535
+      },
+      "expected_output": 2147450880,
+      "description": "Boundary case n=65535",
+      "validation_status": "valid",
+      "actual_output": "2147450880"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "n": 65536
+      },
+      "expected_output": null,
+      "description": "Invalid case n=65536 exceeds product limit",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "n": -65537
+      },
+      "expected_output": null,
+      "description": "Invalid case n=-65537 exceeds product limit",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

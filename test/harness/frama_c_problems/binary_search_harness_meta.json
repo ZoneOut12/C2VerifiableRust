@@ -1,0 +1,163 @@
+{
+  "source_file": "./data/frama_c_problems/binary_search.c",
+  "function_name": "binsearch",
+  "function_signature": "int binsearch(int *base, int n, int key)",
+  "preconditions": [
+    "n >= 0",
+    "\\valid(base + (0 .. n-1))",
+    "\\forall integer k1, integer k2; 0 <= k1 < k2 < n ==> base[k1] <= base[k2]"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "base": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "n": 5,
+        "key": 3
+      },
+      "expected_output": 2,
+      "description": "Key present in middle of sorted array",
+      "validation_status": "valid",
+      "actual_output": "2"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "base": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "n": 5,
+        "key": 6
+      },
+      "expected_output": -1,
+      "description": "Key not present in sorted array",
+      "validation_status": "valid",
+      "actual_output": "-1"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "base": [
+          42
+        ],
+        "n": 1,
+        "key": 42
+      },
+      "expected_output": 0,
+      "description": "Single-element array with key present",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "base": [
+          42
+        ],
+        "n": 1,
+        "key": 5
+      },
+      "expected_output": -1,
+      "description": "Single-element array with key not present",
+      "validation_status": "valid",
+      "actual_output": "-1"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "base": [
+          10,
+          20,
+          30
+        ],
+        "n": 3,
+        "key": 10
+      },
+      "expected_output": 0,
+      "description": "Key present at start of sorted array",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "base": [
+          1,
+          2,
+          3
+        ],
+        "n": -2,
+        "key": 2
+      },
+      "expected_output": null,
+      "description": "Negative array size violates precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "base": [
+          3,
+          1,
+          2
+        ],
+        "n": 3,
+        "key": 2
+      },
+      "expected_output": null,
+      "description": "Unsorted array violates precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "base": [
+          0
+        ],
+        "n": 0,
+        "key": 5
+      },
+      "expected_output": -1,
+      "description": "Empty array (n=0) with key not present",
+      "validation_status": "valid",
+      "actual_output": "-1"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "base": [
+          5,
+          6,
+          7
+        ],
+        "n": 3,
+        "key": 7
+      },
+      "expected_output": 2,
+      "description": "Key present at end of sorted array",
+      "validation_status": "valid",
+      "actual_output": "2"
+    }
+  ]
+}

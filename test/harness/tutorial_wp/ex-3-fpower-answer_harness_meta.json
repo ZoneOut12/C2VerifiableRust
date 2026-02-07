@@ -1,0 +1,119 @@
+{
+  "source_file": "./data/tutorial_wp/ex-3-fpower-answer.c",
+  "function_name": "power",
+  "function_signature": "int power(int x, int n)",
+  "preconditions": [
+    "0 <= n < INT_MAX",
+    "\\exists integer m; is_power(x, n, m) && INT_MIN <= m <= INT_MAX"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x": 2,
+        "n": 3
+      },
+      "expected_output": 8,
+      "description": "Positive base and exponent",
+      "validation_status": "valid",
+      "actual_output": "8"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x": 0,
+        "n": 5
+      },
+      "expected_output": 0,
+      "description": "Zero base with positive exponent",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x": -2,
+        "n": 3
+      },
+      "expected_output": -8,
+      "description": "Negative base and odd exponent",
+      "validation_status": "valid",
+      "actual_output": "-8"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x": 1,
+        "n": 2147483646
+      },
+      "expected_output": 1,
+      "description": "Base 1 with maximum allowed exponent",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x": 2,
+        "n": 30
+      },
+      "expected_output": 1073741824,
+      "description": "Exponent resulting in maximum valid value below INT_MAX",
+      "validation_status": "valid",
+      "actual_output": "1073741824"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "x": 2,
+        "n": -1
+      },
+      "expected_output": null,
+      "description": "Negative exponent violating first precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "x": 2,
+        "n": 31
+      },
+      "expected_output": null,
+      "description": "Exponent leading to overflow (exceeding INT_MAX)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "x": 5,
+        "n": 0
+      },
+      "expected_output": 1,
+      "description": "Zero exponent, valid according to precondition",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "x": -1,
+        "n": 2147483646
+      },
+      "expected_output": 1,
+      "description": "Maximum allowed exponent with negative base resulting in 1",
+      "validation_status": "valid",
+      "actual_output": "1"
+    }
+  ]
+}

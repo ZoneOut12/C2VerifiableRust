@@ -1,0 +1,118 @@
+{
+  "source_file": "./data/frama_c_problems/diff.c",
+  "function_name": "diff",
+  "function_signature": "int diff(int x, int y)",
+  "preconditions": [
+    "INT_MIN <= x-y <= INT_MAX"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x": 10,
+        "y": 5
+      },
+      "expected_output": 5,
+      "description": "Normal subtraction with positive numbers",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x": 5,
+        "y": 10
+      },
+      "expected_output": -5,
+      "description": "Normal subtraction resulting in negative number",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x": 0,
+        "y": -5
+      },
+      "expected_output": 5,
+      "description": "Zero minus negative number",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x": "INT_MAX - 1",
+        "y": 0
+      },
+      "expected_output": "INT_MAX - 1",
+      "description": "x near maximum int value",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x": "INT_MIN + 1",
+        "y": 0
+      },
+      "expected_output": "INT_MIN + 1",
+      "description": "x near minimum int value",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "x": "INT_MAX",
+        "y": 0
+      },
+      "expected_output": "INT_MAX",
+      "description": "x at maximum int value",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "x": "INT_MIN",
+        "y": 0
+      },
+      "expected_output": "INT_MIN",
+      "description": "x at minimum int value",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "x": "INT_MIN",
+        "y": 1
+      },
+      "expected_output": null,
+      "description": "x-y underflows (INT_MIN - 1)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "x": "INT_MAX",
+        "y": -1
+      },
+      "expected_output": null,
+      "description": "x-y overflows (INT_MAX + 1)",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

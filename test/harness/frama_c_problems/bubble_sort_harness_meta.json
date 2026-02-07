@@ -1,0 +1,150 @@
+{
+  "source_file": "./data/frama_c_problems/bubble_sort.c",
+  "function_name": "bubbleSort",
+  "function_signature": "void bubbleSort(int *a, int n)",
+  "preconditions": [
+    "\\valid(a+(0..n-1))",
+    "n > 0"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          3,
+          1,
+          4,
+          1,
+          5
+        ],
+        "n": 5
+      },
+      "expected_output": null,
+      "description": "Valid - normal array with 5 elements",
+      "validation_status": "valid",
+      "actual_output": "test_case_1: [1, 1, 3, 4, 5]"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "n": 4
+      },
+      "expected_output": null,
+      "description": "Valid - already sorted array",
+      "validation_status": "valid",
+      "actual_output": "test_case_2: [1, 2, 3, 4]"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          5,
+          4,
+          3
+        ],
+        "n": 3
+      },
+      "expected_output": null,
+      "description": "Valid - reverse sorted array",
+      "validation_status": "valid",
+      "actual_output": "test_case_3: [3, 4, 5]"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          2,
+          2,
+          1
+        ],
+        "n": 3
+      },
+      "expected_output": null,
+      "description": "Valid - array with duplicates",
+      "validation_status": "valid",
+      "actual_output": "test_case_4: [1, 2, 2]"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          5,
+          3
+        ],
+        "n": 2
+      },
+      "expected_output": null,
+      "description": "Valid - minimal valid array size (n=2)",
+      "validation_status": "valid",
+      "actual_output": "test_case_5: [3, 5]"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "a": [
+          42
+        ],
+        "n": 1
+      },
+      "expected_output": null,
+      "description": "Boundary - minimal array size (n=1)",
+      "validation_status": "valid",
+      "actual_output": "test_case_6: [42]"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "a": [
+          7,
+          7
+        ],
+        "n": 2
+      },
+      "expected_output": null,
+      "description": "Boundary - equal elements in array",
+      "validation_status": "valid",
+      "actual_output": "test_case_7: [7, 7]"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "a": [
+          1,
+          2,
+          3
+        ],
+        "n": 0
+      },
+      "expected_output": null,
+      "description": "Invalid - n=0 violates n > 0 precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "a": null,
+        "n": 3
+      },
+      "expected_output": null,
+      "description": "Invalid - NULL pointer violates array validity",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

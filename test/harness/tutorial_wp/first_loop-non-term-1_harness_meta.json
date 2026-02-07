@@ -1,0 +1,89 @@
+{
+  "source_file": "./data/tutorial_wp/first_loop-non-term-1.c",
+  "function_name": "main",
+  "function_signature": "int main()",
+  "preconditions": [],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Normal execution with initial values i=0, h=42",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Repetition of normal execution",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Another repetition of normal execution",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Additional repetition of normal execution",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Final repetition of normal execution",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Hypothetical invalid case (no preconditions to violate)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Hypothetical invalid case (no preconditions to violate)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Loop terminates exactly at i=30",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {},
+      "expected_output": null,
+      "description": "Initial i=0 and h=42",
+      "validation_status": "compile_error",
+      "actual_output": null
+    }
+  ]
+}

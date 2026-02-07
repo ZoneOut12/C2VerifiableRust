@@ -1,0 +1,110 @@
+{
+  "source_file": "./data/lms_verify/dfa_aabany.check.c",
+  "function_name": "dfa_aabany",
+  "function_signature": "int dfa_aabany(char* input)",
+  "preconditions": [
+    "strlen(input)>=0",
+    "\\valid(input+(0..strlen(input)))"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "input": "AAB"
+      },
+      "expected_output": 1,
+      "description": "Valid input containing 'AAB' pattern",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "input": "BAAB"
+      },
+      "expected_output": 1,
+      "description": "Valid input with 'AAB' after B",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "input": "AA"
+      },
+      "expected_output": 0,
+      "description": "Valid input without 'AAB' pattern",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "input": "AABB"
+      },
+      "expected_output": 1,
+      "description": "Valid input with 'AAB' followed by B",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "input": "B"
+      },
+      "expected_output": 0,
+      "description": "Valid single character input",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "input": ""
+      },
+      "expected_output": 0,
+      "description": "Empty string boundary case",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "input": "A"
+      },
+      "expected_output": 0,
+      "description": "Single character boundary case",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "input": "NULL"
+      },
+      "expected_output": null,
+      "description": "NULL pointer input violating validity",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "input": "non-null-terminated 'AA'"
+      },
+      "expected_output": null,
+      "description": "Input string without null terminator violating validity",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

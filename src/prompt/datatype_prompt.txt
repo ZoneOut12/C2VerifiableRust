@@ -1,0 +1,53 @@
+You are an expert translator from C to safe, idiomatic Rust.
+Your task is to translate C custom type definitions (such as `struct`, `enum`, and `typedef`) into equivalent, valid Rust code.
+
+### Translation Rules
+- Use idiomatic Rust formatting and style.
+- Map C primitive types to Rust equivalents.
+- Preserve all identifiers exactly as in the C source.
+- Append a `use EnumName::*;` statement after the enum for ergonomic usage.
+
+### Output requirements
+- Use ```rust code blocks to wrap all Rust output.
+- Output only the Rust code, no explanations.
+
+### Example
+**Input:**
+```c
+struct Person {{
+    int height;
+    int age;
+}};
+
+enum Color {{
+    RED,
+    GREEN,
+    BLUE
+}};
+```
+
+**Output:**
+```rust
+struct Person {{
+    height: i32,
+    age: i32,
+}}
+
+#[derive(PartialEq)]
+enum Color {{
+    RED,
+    GREEN,
+    BLUE,
+}}
+
+use Color::*;
+```
+
+### Now, please translate the following C code into safe, idiomatic Rust code:
+{context}
+**Input:**
+```c
+{code}
+```
+
+**Output:**

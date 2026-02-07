@@ -1,0 +1,87 @@
+{
+  "source_file": "./data/tutorial_wp/even-0.c",
+  "function_name": "check_even",
+  "function_signature": "void check_even(int n)",
+  "preconditions": [
+    "even_natural(n)"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "n": 0
+      },
+      "expected_output": null,
+      "description": "Zero is even (base case)",
+      "validation_status": "valid",
+      "actual_output": "test_case_1: SUCCESS"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "n": 2
+      },
+      "expected_output": null,
+      "description": "Smallest positive even number",
+      "validation_status": "valid",
+      "actual_output": "test_case_2: SUCCESS"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "n": 42
+      },
+      "expected_output": null,
+      "description": "Large even number",
+      "validation_status": "valid",
+      "actual_output": "test_case_3: SUCCESS"
+    },
+    {
+      "test_id": 4,
+      "type": "boundary",
+      "inputs": {
+        "n": 0
+      },
+      "expected_output": null,
+      "description": "Minimum valid even number",
+      "validation_status": "valid",
+      "actual_output": "test_case_4: SUCCESS"
+    },
+    {
+      "test_id": 5,
+      "type": "boundary",
+      "inputs": {
+        "n": 2
+      },
+      "expected_output": null,
+      "description": "First even number after zero",
+      "validation_status": "valid",
+      "actual_output": "test_case_5: SUCCESS"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "n": 1
+      },
+      "expected_output": null,
+      "description": "Smallest odd number (violates even_natural)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "n": 3
+      },
+      "expected_output": null,
+      "description": "Odd number (violates even_natural)",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

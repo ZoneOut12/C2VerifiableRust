@@ -1,0 +1,147 @@
+{
+  "source_file": "./data/lms_verify/ex2_bad.c",
+  "function_name": "pick_element",
+  "function_signature": "int pick_element(int* p, int n)",
+  "preconditions": [
+    "n > 0",
+    "\\valid_read(p + (0..n-1))"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "p": [
+          1,
+          2,
+          3
+        ],
+        "n": 3
+      },
+      "expected_output": 1,
+      "description": "Valid case with n=3 and array [1,2,3]",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "p": [
+          42
+        ],
+        "n": 1
+      },
+      "expected_output": 42,
+      "description": "Valid single element array",
+      "validation_status": "valid",
+      "actual_output": "42"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "p": [
+          0,
+          -5
+        ],
+        "n": 2
+      },
+      "expected_output": 0,
+      "description": "Valid array with zero and negative values",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "p": [
+          -1,
+          -2,
+          -3,
+          -4
+        ],
+        "n": 4
+      },
+      "expected_output": -1,
+      "description": "Valid array with all negative values",
+      "validation_status": "valid",
+      "actual_output": "-1"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "p": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "n": 5
+      },
+      "expected_output": 10,
+      "description": "Valid larger array with n=5",
+      "validation_status": "valid",
+      "actual_output": "10"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "p": [
+          5
+        ],
+        "n": 1
+      },
+      "expected_output": 5,
+      "description": "Boundary case with minimal allowed n=1",
+      "validation_status": "valid",
+      "actual_output": "5"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "p": [
+          100,
+          200
+        ],
+        "n": 2
+      },
+      "expected_output": 100,
+      "description": "Boundary case with exactly 2 elements",
+      "validation_status": "valid",
+      "actual_output": "100"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "p": [
+          1,
+          2
+        ],
+        "n": 0
+      },
+      "expected_output": null,
+      "description": "Invalid n=0 violating n > 0 precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "p": null,
+        "n": 2
+      },
+      "expected_output": null,
+      "description": "Invalid NULL pointer violating valid_read precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

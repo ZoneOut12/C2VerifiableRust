@@ -1,0 +1,219 @@
+{
+  "source_file": "./data/tutorial_wp/ex-4-add-vectors-answer.c",
+  "function_name": "add_vectors",
+  "function_signature": "void add_vectors(int* v_res, const int* v1, const int* v2, size_t len)",
+  "preconditions": [
+    "\\valid(v_res + (0 .. len-1))",
+    "\\valid_read(v1 + (0 .. len-1))",
+    "\\valid_read(v2 + (0 .. len-1))",
+    "\\separated(v1 + (0 .. len-1), v_res + (0 .. len-1))",
+    "\\separated(v2 + (0 .. len-1), v_res + (0 .. len-1))",
+    "\\forall integer i ; 0 <= i < len ==> INT_MIN <= v1[i]+v2[i] <= INT_MAX"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "v_res": [
+          0,
+          0,
+          0
+        ],
+        "v1": [
+          1,
+          2,
+          3
+        ],
+        "v2": [
+          4,
+          5,
+          6
+        ],
+        "len": 3
+      },
+      "expected_output": null,
+      "description": "Valid case with positive integers",
+      "validation_status": "valid",
+      "actual_output": "test_case_1: [5, 7, 9]"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "v_res": [
+          0,
+          0
+        ],
+        "v1": [
+          -1,
+          -2
+        ],
+        "v2": [
+          -3,
+          -4
+        ],
+        "len": 2
+      },
+      "expected_output": null,
+      "description": "Valid case with negative integers",
+      "validation_status": "valid",
+      "actual_output": "test_case_2: [-4, -6]"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "v_res": [
+          0,
+          0
+        ],
+        "v1": [
+          5,
+          -3
+        ],
+        "v2": [
+          -2,
+          4
+        ],
+        "len": 2
+      },
+      "expected_output": null,
+      "description": "Valid case with mixed positive and negative integers",
+      "validation_status": "valid",
+      "actual_output": "test_case_3: [3, 1]"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "v_res": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "v1": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "v2": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "len": 5
+      },
+      "expected_output": null,
+      "description": "Valid case with all zeros",
+      "validation_status": "valid",
+      "actual_output": "test_case_4: [0, 0, 0, 0, 0]"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "v_res": [
+          0
+        ],
+        "v1": [
+          42
+        ],
+        "v2": [
+          13
+        ],
+        "len": 1
+      },
+      "expected_output": null,
+      "description": "Valid case with single element",
+      "validation_status": "valid",
+      "actual_output": "test_case_5: [55]"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "v_res": null,
+        "v1": [
+          1,
+          2
+        ],
+        "v2": [
+          3,
+          4
+        ],
+        "len": 2
+      },
+      "expected_output": null,
+      "description": "Invalid case with NULL v_res pointer",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "v_res": [
+          0,
+          0
+        ],
+        "v1": [
+          1,
+          2
+        ],
+        "v2": [
+          3,
+          4
+        ],
+        "len": 2
+      },
+      "expected_output": null,
+      "description": "Invalid case with overlapping v1 and v_res arrays",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "v_res": [],
+        "v1": [],
+        "v2": [],
+        "len": 0
+      },
+      "expected_output": null,
+      "description": "Boundary case with zero length",
+      "validation_status": "valid",
+      "actual_output": "test_case_8: (no output expected)"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "v_res": [
+          0,
+          0
+        ],
+        "v1": [
+          2147483647,
+          -2147483648
+        ],
+        "v2": [
+          0,
+          0
+        ],
+        "len": 2
+      },
+      "expected_output": null,
+      "description": "Boundary case with sums at INT_MAX and INT_MIN",
+      "validation_status": "valid",
+      "actual_output": "test_case_9: [2147483647, -2147483648]"
+    }
+  ]
+}

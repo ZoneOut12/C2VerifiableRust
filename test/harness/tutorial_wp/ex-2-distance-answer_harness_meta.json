@@ -1,0 +1,119 @@
+{
+  "source_file": "./data/tutorial_wp/ex-2-distance-answer.c",
+  "function_name": "distance",
+  "function_signature": "int distance(int a, int b)",
+  "preconditions": [
+    "a < b  ==> b - a <= INT_MAX",
+    "b <= a ==> a - b <= INT_MAX"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": 3,
+        "b": 7
+      },
+      "expected_output": 4,
+      "description": "Normal case where a < b",
+      "validation_status": "valid",
+      "actual_output": "4"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": 7,
+        "b": 3
+      },
+      "expected_output": 4,
+      "description": "Normal case where b < a",
+      "validation_status": "valid",
+      "actual_output": "4"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": 0,
+        "b": 5
+      },
+      "expected_output": 5,
+      "description": "Zero and positive number",
+      "validation_status": "valid",
+      "actual_output": "5"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "a": -5,
+        "b": 0
+      },
+      "expected_output": 5,
+      "description": "Negative and zero",
+      "validation_status": "valid",
+      "actual_output": "5"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": 2147483646,
+        "b": 2147483647
+      },
+      "expected_output": 1,
+      "description": "Two large positive numbers (INT_MAX-1 and INT_MAX)",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "a": 0,
+        "b": 2147483647
+      },
+      "expected_output": 2147483647,
+      "description": "Maximum allowed difference when a < b (INT_MAX)",
+      "validation_status": "valid",
+      "actual_output": "2147483647"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "a": -2147483648,
+        "b": -1
+      },
+      "expected_output": 2147483647,
+      "description": "Difference at INT_MAX for a < b with negative values (INT_MIN and -1)",
+      "validation_status": "valid",
+      "actual_output": "2147483647"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "a": -2147483648,
+        "b": 1
+      },
+      "expected_output": null,
+      "description": "Overflow when a < b due to INT_MIN and b=1",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "a": 2147483647,
+        "b": -1
+      },
+      "expected_output": null,
+      "description": "Overflow when b <= a due to INT_MAX and b=-1",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

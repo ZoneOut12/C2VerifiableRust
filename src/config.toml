@@ -1,0 +1,19 @@
+[path]
+# All relative paths are relative to the top-level directory of this project.
+dataset_txt = "./data/dataset_path/total_benchmark.txt"
+log_file = "./log/run.log"
+result_dir = "./result"
+verus = "~/verus-x86-linux/verus"
+libclang_path = "/usr/lib/llvm-14/lib/libclang.so"
+
+[model]
+base_url = ""
+api_key = ""
+model_name = ""
+max_tokens = 2048
+temperature = 0.2
+top_p = 0.7
+repair_round_threshold = 3
+
+[spec]
+type_guidance = "True"

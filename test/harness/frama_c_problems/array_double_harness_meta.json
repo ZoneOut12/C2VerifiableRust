@@ -1,0 +1,152 @@
+{
+  "source_file": "./data/frama_c_problems/array_double.c",
+  "function_name": "arrayDouble",
+  "function_signature": "void arrayDouble(int *a, int n)",
+  "preconditions": [
+    "n > 0",
+    "\\valid(a+(0..n-1))",
+    "\\forall integer k; 0 <= k < n ==> a[k] == k && 2*k <= INT_MAX"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "n": 5
+      },
+      "expected_output": null,
+      "description": "Valid normal case with n=5 and array elements 0 to 4",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          0
+        ],
+        "n": 1
+      },
+      "expected_output": null,
+      "description": "Valid case with minimum n=1",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          0,
+          1
+        ],
+        "n": 2
+      },
+      "expected_output": null,
+      "description": "Valid case with n=2",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          0,
+          1,
+          2
+        ],
+        "n": 3
+      },
+      "expected_output": null,
+      "description": "Valid case with n=3",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "n": 6
+      },
+      "expected_output": null,
+      "description": "Original example case with n=6",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "a": [
+          0
+        ],
+        "n": 0
+      },
+      "expected_output": null,
+      "description": "Invalid n=0 violates requires n>0",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "a": [
+          0,
+          2
+        ],
+        "n": 2
+      },
+      "expected_output": null,
+      "description": "Invalid array element a[1] = 2 != 1",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "a": [
+          0
+        ],
+        "n": 1
+      },
+      "expected_output": null,
+      "description": "Boundary case with minimum n=1",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "a": [
+          0,
+          1
+        ],
+        "n": 2
+      },
+      "expected_output": null,
+      "description": "Boundary case with n=2",
+      "validation_status": "compile_error",
+      "actual_output": null
+    }
+  ]
+}

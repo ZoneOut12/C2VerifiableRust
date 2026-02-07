@@ -1,0 +1,152 @@
+{
+  "source_file": "./data/lms_verify/ex6.check.c",
+  "function_name": "insort",
+  "function_signature": "void insort(int *x22, int x23)",
+  "preconditions": [
+    "x23 > 0",
+    "\\valid(x22 + (0..x23-1))"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x22": [
+          3,
+          1,
+          4,
+          1,
+          5
+        ],
+        "x23": 5
+      },
+      "expected_output": "1",
+      "description": "Normal unsorted array of 5 elements",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x22": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "x23": 5
+      },
+      "expected_output": "1",
+      "description": "Already sorted array of 5 elements",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x22": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "x23": 4
+      },
+      "expected_output": "5",
+      "description": "All elements equal in array of 4 elements",
+      "validation_status": "valid",
+      "actual_output": "5"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x22": [
+          2,
+          1
+        ],
+        "x23": 2
+      },
+      "expected_output": "1",
+      "description": "Reverse-sorted array of 2 elements",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x22": [
+          5,
+          3,
+          1
+        ],
+        "x23": 3
+      },
+      "expected_output": "1",
+      "description": "Reverse-sorted array of 3 elements",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "x22": [
+          1,
+          2,
+          3
+        ],
+        "x23": 0
+      },
+      "expected_output": null,
+      "description": "Size zero violates x23 > 0 precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "x22": null,
+        "x23": 3
+      },
+      "expected_output": null,
+      "description": "NULL pointer violates array validity",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "x22": [
+          42
+        ],
+        "x23": 1
+      },
+      "expected_output": "42",
+      "description": "Minimum allowed size (1 element)",
+      "validation_status": "valid",
+      "actual_output": "42"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "x22": [
+          2,
+          2
+        ],
+        "x23": 2
+      },
+      "expected_output": "2",
+      "description": "Two equal elements array",
+      "validation_status": "valid",
+      "actual_output": "2"
+    }
+  ]
+}

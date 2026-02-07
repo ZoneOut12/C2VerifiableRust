@@ -1,0 +1,109 @@
+{
+  "source_file": "./data/tutorial_wp/ex-3-day-month-answer.c",
+  "function_name": "day_of",
+  "function_signature": "int day_of(int m)",
+  "preconditions": [
+    "1 <= m <= 12"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "m": 2
+      },
+      "expected_output": 28,
+      "description": "Valid case - February (28 days)",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "m": 4
+      },
+      "expected_output": 30,
+      "description": "Valid case - April (30 days)",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "m": 6
+      },
+      "expected_output": 30,
+      "description": "Valid case - June (30 days)",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "m": 3
+      },
+      "expected_output": 31,
+      "description": "Valid case - March (31 days)",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "m": 10
+      },
+      "expected_output": 31,
+      "description": "Valid case - October (31 days)",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "m": 1
+      },
+      "expected_output": 31,
+      "description": "Boundary case - January (minimum valid month)",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "m": 12
+      },
+      "expected_output": 31,
+      "description": "Boundary case - December (maximum valid month)",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "m": 0
+      },
+      "expected_output": null,
+      "description": "Invalid case - m less than minimum (violates 1 <= m)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "m": 13
+      },
+      "expected_output": null,
+      "description": "Invalid case - m greater than maximum (violates m <= 12)",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

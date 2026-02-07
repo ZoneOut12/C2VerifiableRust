@@ -1,0 +1,119 @@
+{
+  "source_file": "./data/tutorial_wp/ex-1-distance.c",
+  "function_name": "distance",
+  "function_signature": "int distance(int a, int b)",
+  "preconditions": [
+    "a < b  ==> b - a <= INT_MAX",
+    "b <= a ==> a - b <= INT_MAX"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": 5,
+        "b": 10
+      },
+      "expected_output": 5,
+      "description": "Normal case with positive numbers",
+      "validation_status": "valid",
+      "actual_output": "5"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": -3,
+        "b": 2
+      },
+      "expected_output": 5,
+      "description": "Case with negative and positive numbers",
+      "validation_status": "valid",
+      "actual_output": "5"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": 0,
+        "b": 0
+      },
+      "expected_output": 0,
+      "description": "Equal values",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "a": 2147483645,
+        "b": 2147483647
+      },
+      "expected_output": 2,
+      "description": "Values near INT_MAX (32-bit)",
+      "validation_status": "valid",
+      "actual_output": "2"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": -2147483647,
+        "b": 0
+      },
+      "expected_output": 2147483647,
+      "description": "Negative near INT_MIN (32-bit)",
+      "validation_status": "valid",
+      "actual_output": "2147483647"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "a": 0,
+        "b": 2147483647
+      },
+      "expected_output": 2147483647,
+      "description": "Maximum allowed difference (INT_MAX)",
+      "validation_status": "valid",
+      "actual_output": "2147483647"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "a": -2147483648,
+        "b": -2147483648
+      },
+      "expected_output": 0,
+      "description": "INT_MIN with equal values",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "a": -2147483648,
+        "b": 0
+      },
+      "expected_output": null,
+      "description": "a < b with difference > INT_MAX (32-bit)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "a": 2147483647,
+        "b": -2147483647
+      },
+      "expected_output": null,
+      "description": "b <= a with difference > INT_MAX (32-bit)",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "source_file": "./data/frama_c_problems/triangle_angles.c",
+  "function_name": "unknown",
+  "function_signature": "",
+  "preconditions": [],
+  "test_cases": []
+}

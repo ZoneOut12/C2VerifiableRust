@@ -1,0 +1,38 @@
+You are assisting in debugging and correcting Rust code that was automatically translated from a C program.
+
+**Below, you are given:**
+1. The original C program to be translated.
+2. An initial Rust translation that fails to compile.
+3. The compiler error messages produced by `rustc`.
+
+**Your task is to:**
+- Fix only the compilation errors, and preserve the structure, control flow, comments, and all identifiers exactly as written in the original (buggy) Rust translation.
+- Preserve the original behavior of the C program.
+- Do not restructure or simplify the Rust code beyond what is necessary to fix the errors.
+- Do not use standard library or third-party functions (such as `std::cmp::max`) to replace explicit conditionals and operations in the original C code.
+- Do not introduce new helper functions, new variables, or logic rearrangement unless absolutely required by the fix.
+- All identifiers (e.g., function names, variable names, struct fields, constants, etc.) must remain unchanged.
+- Preserve all comments in the Rust code, and do not introduce any new comments.
+- All `for` loops in the C code must remain as `while` loops in Rust if translated that way.
+- **Do not use raw pointers or pointer conversion methods (e.g., `as_ptr()`, `as_mut_ptr()`, or casting references to pointers).**
+- Avoid using `unsafe` blocks in Rust unless absolutely necessary.
+- Make minimal edits necessary to fix the errors.
+- Output only the corrected Rust code, without any additional explanations.
+- **The final corrected Rust code must be wrapped in a fenced code block starting with ` ```rust ` and ending with ` ``` `.**
+    
+**Original C Program:**
+```c
+{c_code}
+```
+
+**Rust Program (with Compilation Errors):**
+```rust
+{rust_code}
+```
+
+**rustc Compiler Errors:**
+```bash
+{error_msg}
+```
+
+**Repaired Rust Program:**

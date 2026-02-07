@@ -1,0 +1,156 @@
+{
+  "source_file": "./data/tutorial_wp/ex-4-binary-search-answer.c",
+  "function_name": "bsearch",
+  "function_signature": "size_t bsearch(int* arr, size_t len, int value)",
+  "preconditions": [
+    "\\valid_read(arr + (0 .. len-1))",
+    "sorted(arr, len)"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "arr": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "len": 5,
+        "value": 3
+      },
+      "expected_output": 2,
+      "description": "Value present in middle of sorted array",
+      "validation_status": "valid",
+      "actual_output": "2"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "arr": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "len": 5,
+        "value": 6
+      },
+      "expected_output": 5,
+      "description": "Value not present in sorted array",
+      "validation_status": "valid",
+      "actual_output": "5"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "arr": [
+          42
+        ],
+        "len": 1,
+        "value": 42
+      },
+      "expected_output": 0,
+      "description": "Single element array, value present",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "arr": [
+          42
+        ],
+        "len": 1,
+        "value": 5
+      },
+      "expected_output": 1,
+      "description": "Single element array, value not present",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "arr": [
+          10,
+          20,
+          30
+        ],
+        "len": 3,
+        "value": 30
+      },
+      "expected_output": 2,
+      "description": "Value at end of sorted array",
+      "validation_status": "valid",
+      "actual_output": "2"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "arr": null,
+        "len": 3,
+        "value": 5
+      },
+      "expected_output": null,
+      "description": "Null array pointer (violates valid_read precondition)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "arr": [
+          3,
+          1,
+          2
+        ],
+        "len": 3,
+        "value": 2
+      },
+      "expected_output": null,
+      "description": "Unsorted array (violates sorted precondition)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "arr": [],
+        "len": 0,
+        "value": 42
+      },
+      "expected_output": 0,
+      "description": "Empty array (edge case)",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "arr": [
+          1,
+          3,
+          5
+        ],
+        "len": 3,
+        "value": 3
+      },
+      "expected_output": 1,
+      "description": "Value found at mid-point in first iteration",
+      "validation_status": "valid",
+      "actual_output": "1"
+    }
+  ]
+}

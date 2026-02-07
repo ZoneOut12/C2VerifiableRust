@@ -1,0 +1,110 @@
+{
+  "source_file": "./data/tutorial_wp/assigns-nothing.c",
+  "function_name": "plus_5",
+  "function_signature": "int plus_5(int* a)",
+  "preconditions": [
+    "\\valid_read(a)",
+    "*a <= INT_MAX - 5"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": 0
+      },
+      "expected_output": 5,
+      "description": "Valid input with value 0",
+      "validation_status": "valid",
+      "actual_output": "5"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": 10
+      },
+      "expected_output": 15,
+      "description": "Valid input with positive value",
+      "validation_status": "valid",
+      "actual_output": "15"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": -5
+      },
+      "expected_output": 0,
+      "description": "Valid input with negative value",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "a": 100
+      },
+      "expected_output": 105,
+      "description": "Valid input with larger value",
+      "validation_status": "valid",
+      "actual_output": "105"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": "INT_MAX - 10"
+      },
+      "expected_output": "2147483642",
+      "description": "Valid input near upper bound",
+      "validation_status": "valid",
+      "actual_output": "2147483642"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "a": "NULL"
+      },
+      "expected_output": null,
+      "description": "Invalid input: NULL pointer",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "a": "INT_MAX - 4"
+      },
+      "expected_output": null,
+      "description": "Invalid input: value exceeds upper bound",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "a": "INT_MAX - 5"
+      },
+      "expected_output": "2147483647",
+      "description": "Boundary input: maximum allowed value",
+      "validation_status": "valid",
+      "actual_output": "2147483647"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "a": "INT_MIN"
+      },
+      "expected_output": "-2147483643",
+      "description": "Boundary input: minimum possible value",
+      "validation_status": "valid",
+      "actual_output": "-2147483643"
+    }
+  ]
+}

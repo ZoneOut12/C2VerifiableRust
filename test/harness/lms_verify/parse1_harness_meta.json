@@ -1,0 +1,110 @@
+{
+  "source_file": "./data/lms_verify/parse1.c",
+  "function_name": "my_atoi",
+  "function_signature": "int my_atoi(char* a)",
+  "preconditions": [
+    "strlen(a)>=0",
+    "\\valid(a+(0..strlen(a)))"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": "123"
+      },
+      "expected_output": 123,
+      "description": "Valid input with normal number",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": "0"
+      },
+      "expected_output": 0,
+      "description": "Valid input zero",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": "456abc"
+      },
+      "expected_output": 456,
+      "description": "Valid input digits followed by non-digits",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "a": "0042"
+      },
+      "expected_output": 42,
+      "description": "Valid input with leading zeros",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": "7"
+      },
+      "expected_output": 7,
+      "description": "Valid single digit input",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "a": ""
+      },
+      "expected_output": 0,
+      "description": "Boundary empty string input",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "a": "214748354"
+      },
+      "expected_output": 214748354,
+      "description": "Boundary input at overflow threshold",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "a": "NULL"
+      },
+      "expected_output": null,
+      "description": "Invalid NULL pointer input",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "a": "non-null-terminated array"
+      },
+      "expected_output": null,
+      "description": "Invalid non-null-terminated array input",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

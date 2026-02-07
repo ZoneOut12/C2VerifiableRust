@@ -1,0 +1,110 @@
+{
+  "source_file": "./data/lms_verify/dfa_aab.check.c",
+  "function_name": "dfa_aab",
+  "function_signature": "int dfa_aab(char* input)",
+  "preconditions": [
+    "strlen(input) >= 0",
+    "\\valid(input+(0..strlen(input)))"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "input": "AAB"
+      },
+      "expected_output": 1,
+      "description": "Valid input matching the DFA pattern (ends with non-A after two A's)",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "input": "AAAAB"
+      },
+      "expected_output": 1,
+      "description": "Valid input with multiple A's followed by non-A",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "input": "A"
+      },
+      "expected_output": 0,
+      "description": "Valid single-character input",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "input": "B"
+      },
+      "expected_output": 0,
+      "description": "Valid single non-A character input",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "input": "AA"
+      },
+      "expected_output": 0,
+      "description": "Valid input with two A's (ends with A)",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "input": ""
+      },
+      "expected_output": 0,
+      "description": "Empty string (edge case)",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "input": "AB"
+      },
+      "expected_output": 0,
+      "description": "Two-character input with A followed by B",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "input": "NULL"
+      },
+      "expected_output": null,
+      "description": "NULL pointer input violating \\valid precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "input": "non-null-terminated"
+      },
+      "expected_output": null,
+      "description": "Non-null-terminated array violating \\valid precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

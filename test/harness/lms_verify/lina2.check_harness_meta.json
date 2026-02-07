@@ -1,0 +1,190 @@
+{
+  "source_file": "./data/lms_verify/lina2.check.c",
+  "function_name": "index_where_even",
+  "function_signature": "int index_where_even(int * x0, int x1, int * x2)",
+  "preconditions": [
+    "(((x1>0) && \\valid(x0+(0..x1-1))) && \\valid(x2+(0..x1-1)))"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x0": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "x1": 5,
+        "x2": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected_output": 2,
+      "description": "Normal case with mixed even/odd elements",
+      "validation_status": "valid",
+      "actual_output": "2"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x0": [
+          2,
+          4,
+          6
+        ],
+        "x1": 3,
+        "x2": [
+          0,
+          0,
+          0
+        ]
+      },
+      "expected_output": 3,
+      "description": "All elements even",
+      "validation_status": "valid",
+      "actual_output": "3"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x0": [
+          1,
+          3,
+          5
+        ],
+        "x1": 3,
+        "x2": [
+          0,
+          0,
+          0
+        ]
+      },
+      "expected_output": 0,
+      "description": "No even elements",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x0": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "x1": 5,
+        "x2": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected_output": 3,
+      "description": "Zero and increasing even indices",
+      "validation_status": "valid",
+      "actual_output": "3"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x0": [
+          0
+        ],
+        "x1": 1,
+        "x2": [
+          0
+        ]
+      },
+      "expected_output": 1,
+      "description": "Single even element",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "x0": [
+          1,
+          2
+        ],
+        "x1": 0,
+        "x2": [
+          0,
+          0
+        ]
+      },
+      "expected_output": null,
+      "description": "x1 = 0 violates x1 > 0 precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "x0": null,
+        "x1": 2,
+        "x2": [
+          0,
+          0
+        ]
+      },
+      "expected_output": null,
+      "description": "x0 = NULL violates pointer validity",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "x0": [
+          0
+        ],
+        "x1": 1,
+        "x2": [
+          0
+        ]
+      },
+      "expected_output": 1,
+      "description": "Minimum valid x1 with even element",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "x0": [
+          0,
+          2
+        ],
+        "x1": 2,
+        "x2": [
+          0,
+          0
+        ]
+      },
+      "expected_output": 2,
+      "description": "Two even elements with increasing indices",
+      "validation_status": "valid",
+      "actual_output": "2"
+    }
+  ]
+}

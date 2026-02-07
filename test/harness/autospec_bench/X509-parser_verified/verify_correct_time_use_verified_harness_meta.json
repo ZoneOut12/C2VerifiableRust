@@ -1,0 +1,116 @@
+{
+  "source_file": "./data/autospec_bench/X509-parser_verified/verify_correct_time_use_verified.c",
+  "function_name": "verify_correct_time_use",
+  "function_signature": "int verify_correct_time_use(uint8_t time_type, uint16_t yyyy)",
+  "preconditions": [],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "time_type": "ASN1_TYPE_UTCTime",
+        "yyyy": 2000
+      },
+      "expected_output": 0,
+      "description": "UTCTime with valid year within range",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "time_type": "ASN1_TYPE_GeneralizedTime",
+        "yyyy": 2050
+      },
+      "expected_output": 0,
+      "description": "GeneralizedTime with valid year at lower bound",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "time_type": "ASN1_TYPE_PrintableString",
+        "yyyy": 2023
+      },
+      "expected_output": -1,
+      "description": "Non-time type returns -1",
+      "validation_status": "valid",
+      "actual_output": "-1"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "time_type": "ASN1_TYPE_GeneralizedTime",
+        "yyyy": 3000
+      },
+      "expected_output": 0,
+      "description": "GeneralizedTime with year far in future",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "time_type": "ASN1_TYPE_UTCTime",
+        "yyyy": 1990
+      },
+      "expected_output": 0,
+      "description": "UTCTime with year in 20th century",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "time_type": "ASN1_TYPE_UTCTime",
+        "yyyy": 2049
+      },
+      "expected_output": 0,
+      "description": "UTCTime at maximum allowed year",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "time_type": "ASN1_TYPE_GeneralizedTime",
+        "yyyy": 2050
+      },
+      "expected_output": 0,
+      "description": "GeneralizedTime at minimum allowed year",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "time_type": "ASN1_TYPE_UTCTime",
+        "yyyy": 2050
+      },
+      "expected_output": null,
+      "description": "UTCTime with year exceeding maximum allowed (postcondition violation)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "time_type": "ASN1_TYPE_GeneralizedTime",
+        "yyyy": 2049
+      },
+      "expected_output": null,
+      "description": "GeneralizedTime with year below minimum allowed (postcondition violation)",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

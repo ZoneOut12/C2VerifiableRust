@@ -1,0 +1,155 @@
+{
+  "source_file": "./data/tutorial_wp/ex-3-binary-search-u-answer.c",
+  "function_name": "bsearch",
+  "function_signature": "size_t bsearch(int* arr, size_t len, int value)",
+  "preconditions": [
+    "\\valid_read(arr + (0 .. len-1))",
+    "\\forall integer i, j ; 0 <= i <= j < len ==> arr[i] <= arr[j]"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "arr": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "len": 5,
+        "value": 3
+      },
+      "expected_output": 2,
+      "description": "Value in middle of sorted array",
+      "validation_status": "valid",
+      "actual_output": "2"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "arr": [
+          10,
+          20,
+          30
+        ],
+        "len": 3,
+        "value": 10
+      },
+      "expected_output": 0,
+      "description": "Value at start of array",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "arr": [
+          5,
+          6,
+          7
+        ],
+        "len": 3,
+        "value": 7
+      },
+      "expected_output": 2,
+      "description": "Value at end of array",
+      "validation_status": "valid",
+      "actual_output": "2"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "arr": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "len": 4,
+        "value": 5
+      },
+      "expected_output": 4,
+      "description": "Value not present in array",
+      "validation_status": "valid",
+      "actual_output": "4"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "arr": [
+          5
+        ],
+        "len": 1,
+        "value": 5
+      },
+      "expected_output": 0,
+      "description": "Single element array with match",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "arr": null,
+        "len": 3,
+        "value": 0
+      },
+      "expected_output": null,
+      "description": "Null array pointer violating valid_read",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "arr": [
+          3,
+          1,
+          2
+        ],
+        "len": 3,
+        "value": 2
+      },
+      "expected_output": null,
+      "description": "Unsorted array violating sorted requirement",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "arr": null,
+        "len": 0,
+        "value": 42
+      },
+      "expected_output": 0,
+      "description": "Empty array (len=0)",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "arr": [
+          5
+        ],
+        "len": 1,
+        "value": 3
+      },
+      "expected_output": 1,
+      "description": "Single element array without match",
+      "validation_status": "valid",
+      "actual_output": "1"
+    }
+  ]
+}

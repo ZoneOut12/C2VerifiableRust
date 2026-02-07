@@ -1,0 +1,110 @@
+{
+  "source_file": "./data/frama_c_problems/2.c",
+  "function_name": "sum",
+  "function_signature": "int sum(char n)",
+  "preconditions": [
+    "n >= 0",
+    "n <= 100"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "n": 1
+      },
+      "expected_output": 1,
+      "description": "Valid input n=1",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "n": 5
+      },
+      "expected_output": 15,
+      "description": "Valid input n=5",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "n": 10
+      },
+      "expected_output": 55,
+      "description": "Valid input n=10",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "n": 50
+      },
+      "expected_output": 1275,
+      "description": "Valid input n=50",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "n": 99
+      },
+      "expected_output": 4950,
+      "description": "Valid input n=99",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "n": 0
+      },
+      "expected_output": 0,
+      "description": "Boundary input n=0",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "n": 100
+      },
+      "expected_output": 5050,
+      "description": "Boundary input n=100",
+      "validation_status": "compile_error",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "n": -1
+      },
+      "expected_output": null,
+      "description": "Invalid input n=-1 (violates n >= 0)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "n": 101
+      },
+      "expected_output": null,
+      "description": "Invalid input n=101 (violates n <= 100)",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

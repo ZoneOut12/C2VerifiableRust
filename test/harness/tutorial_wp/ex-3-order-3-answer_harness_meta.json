@@ -1,0 +1,118 @@
+{
+  "source_file": "./data/tutorial_wp/ex-3-order-3-answer.c",
+  "function_name": "max_ptr",
+  "function_signature": "void max_ptr(int* a, int* b)",
+  "preconditions": [
+    "\\valid(a) && \\valid(b)"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "a": 3,
+        "b": 5
+      },
+      "expected_output": "test_case_1: a=5, b=3",
+      "description": "a < b, values swapped",
+      "validation_status": "valid",
+      "actual_output": "test_case_1: a=5, b=3"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "a": 5,
+        "b": 3
+      },
+      "expected_output": "test_case_2: a=5, b=3",
+      "description": "a > b, no swap",
+      "validation_status": "valid",
+      "actual_output": "test_case_2: a=5, b=3"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "a": 4,
+        "b": 4
+      },
+      "expected_output": "test_case_3: a=4, b=4",
+      "description": "a equals b, no swap",
+      "validation_status": "valid",
+      "actual_output": "test_case_3: a=4, b=4"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "a": -5,
+        "b": -3
+      },
+      "expected_output": "test_case_4: a=-3, b=-5",
+      "description": "Negative values, a < b, swapped",
+      "validation_status": "valid",
+      "actual_output": "test_case_4: a=-3, b=-5"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "a": -2147483648,
+        "b": 2147483647
+      },
+      "expected_output": "test_case_5: a=2147483647, b=-2147483648",
+      "description": "a is INT_MIN and b is INT_MAX, swapped",
+      "validation_status": "valid",
+      "actual_output": "test_case_5: a=2147483647, b=-2147483648"
+    },
+    {
+      "test_id": 6,
+      "type": "invalid",
+      "inputs": {
+        "a": "NULL",
+        "b": 5
+      },
+      "expected_output": null,
+      "description": "a is NULL pointer",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 7,
+      "type": "invalid",
+      "inputs": {
+        "a": 5,
+        "b": "NULL"
+      },
+      "expected_output": null,
+      "description": "b is NULL pointer",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 8,
+      "type": "boundary",
+      "inputs": {
+        "a": 0,
+        "b": 0
+      },
+      "expected_output": "test_case_8: a=0, b=0",
+      "description": "Zero values, edge case of equality",
+      "validation_status": "valid",
+      "actual_output": "test_case_8: a=0, b=0"
+    },
+    {
+      "test_id": 9,
+      "type": "boundary",
+      "inputs": {
+        "a": 1,
+        "b": 2
+      },
+      "expected_output": "test_case_9: a=2, b=1",
+      "description": "Adjacent values, minimal difference",
+      "validation_status": "valid",
+      "actual_output": "test_case_9: a=2, b=1"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "source_file": "./data/lms_verify/inv3.check.c",
+  "function_name": "count_pos",
+  "function_signature": "int count_pos(int* x15, int x16)",
+  "preconditions": [
+    "inv_vec_Int(x15, x16)"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "x15": [
+          1,
+          -2,
+          3,
+          0,
+          5
+        ],
+        "x16": 5
+      },
+      "expected_output": 3,
+      "description": "Normal case with mixed positive and non-positive values",
+      "validation_status": "valid",
+      "actual_output": "3"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "x15": [
+          0,
+          0,
+          0
+        ],
+        "x16": 3
+      },
+      "expected_output": 0,
+      "description": "All zeros",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "x15": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "x16": 4
+      },
+      "expected_output": 4,
+      "description": "All elements positive",
+      "validation_status": "valid",
+      "actual_output": "4"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "x15": [
+          0,
+          1,
+          -1,
+          2
+        ],
+        "x16": 4
+      },
+      "expected_output": 2,
+      "description": "Mix of zero, positive, and negative",
+      "validation_status": "valid",
+      "actual_output": "2"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "x15": [],
+        "x16": 0
+      },
+      "expected_output": 0,
+      "description": "Empty array (x16=0)",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "x15": [
+          0
+        ],
+        "x16": 1
+      },
+      "expected_output": 0,
+      "description": "Single element that is zero",
+      "validation_status": "valid",
+      "actual_output": "0"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "x15": [
+          5
+        ],
+        "x16": 1
+      },
+      "expected_output": 1,
+      "description": "Single positive element",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "x15": [
+          1,
+          2,
+          3
+        ],
+        "x16": -3
+      },
+      "expected_output": null,
+      "description": "Negative array size violates precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "x15": null,
+        "x16": 3
+      },
+      "expected_output": null,
+      "description": "NULL array pointer violates precondition",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

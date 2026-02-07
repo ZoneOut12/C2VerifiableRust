@@ -1,0 +1,107 @@
+{
+  "source_file": "./data/tutorial_wp/ex-3-alphabet-answer.c",
+  "function_name": "alphabet_letter",
+  "function_signature": "int alphabet_letter(char c)",
+  "preconditions": [],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "c": "a"
+      },
+      "expected_output": 1,
+      "description": "Lowercase letter 'a'",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "c": "z"
+      },
+      "expected_output": 1,
+      "description": "Lowercase letter 'z'",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "c": "A"
+      },
+      "expected_output": 1,
+      "description": "Uppercase letter 'A'",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "c": "Z"
+      },
+      "expected_output": 1,
+      "description": "Uppercase letter 'Z'",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "c": "m"
+      },
+      "expected_output": 1,
+      "description": "Middle lowercase letter 'm'",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "c": "a"
+      },
+      "expected_output": 1,
+      "description": "Lowercase boundary 'a'",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "c": "Z"
+      },
+      "expected_output": 1,
+      "description": "Uppercase boundary 'Z'",
+      "validation_status": "valid",
+      "actual_output": "1"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "c": " "
+      },
+      "expected_output": null,
+      "description": "Space character (non-letter)",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "c": "3"
+      },
+      "expected_output": null,
+      "description": "Digit character (non-letter)",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}

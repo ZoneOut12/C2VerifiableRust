@@ -1,0 +1,147 @@
+{
+  "source_file": "./data/tutorial_wp/reset.c",
+  "function_name": "reset",
+  "function_signature": "void reset(int* array, size_t length)",
+  "preconditions": [
+    "\\valid(array + (0 .. length-1))"
+  ],
+  "test_cases": [
+    {
+      "test_id": 1,
+      "type": "valid",
+      "inputs": {
+        "array": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "length": 5
+      },
+      "expected_output": null,
+      "description": "Valid - normal array with 5 elements",
+      "validation_status": "valid",
+      "actual_output": "arr[0] = 0\narr[1] = 0\narr[2] = 0\narr[3] = 0\narr[4] = 0"
+    },
+    {
+      "test_id": 2,
+      "type": "valid",
+      "inputs": {
+        "array": [
+          42
+        ],
+        "length": 1
+      },
+      "expected_output": null,
+      "description": "Valid - single element array",
+      "validation_status": "valid",
+      "actual_output": "arr[0] = 0"
+    },
+    {
+      "test_id": 3,
+      "type": "valid",
+      "inputs": {
+        "array": [
+          10,
+          20
+        ],
+        "length": 2
+      },
+      "expected_output": null,
+      "description": "Valid - array with 2 elements",
+      "validation_status": "valid",
+      "actual_output": "arr[0] = 0\narr[1] = 0"
+    },
+    {
+      "test_id": 4,
+      "type": "valid",
+      "inputs": {
+        "array": [
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "length": 6
+      },
+      "expected_output": null,
+      "description": "Valid - larger array with 6 elements",
+      "validation_status": "valid",
+      "actual_output": "arr[0] = 0\narr[1] = 0\narr[2] = 0\narr[3] = 0\narr[4] = 0\narr[5] = 0"
+    },
+    {
+      "test_id": 5,
+      "type": "valid",
+      "inputs": {
+        "array": [
+          -1,
+          -2,
+          -3
+        ],
+        "length": 3
+      },
+      "expected_output": null,
+      "description": "Valid - array with negative values",
+      "validation_status": "valid",
+      "actual_output": "arr[0] = 0\narr[1] = 0\narr[2] = 0"
+    },
+    {
+      "test_id": 6,
+      "type": "boundary",
+      "inputs": {
+        "array": [
+          0
+        ],
+        "length": 0
+      },
+      "expected_output": null,
+      "description": "Boundary - zero-length array",
+      "validation_status": "valid",
+      "actual_output": ""
+    },
+    {
+      "test_id": 7,
+      "type": "boundary",
+      "inputs": {
+        "array": [
+          99
+        ],
+        "length": 1
+      },
+      "expected_output": null,
+      "description": "Boundary - minimum non-zero length",
+      "validation_status": "valid",
+      "actual_output": "arr[0] = 0"
+    },
+    {
+      "test_id": 8,
+      "type": "invalid",
+      "inputs": {
+        "array": null,
+        "length": 3
+      },
+      "expected_output": null,
+      "description": "Invalid - NULL array pointer",
+      "validation_status": "valid",
+      "actual_output": null
+    },
+    {
+      "test_id": 9,
+      "type": "invalid",
+      "inputs": {
+        "array": [
+          1,
+          2
+        ],
+        "length": 3
+      },
+      "expected_output": null,
+      "description": "Invalid - array too small for length",
+      "validation_status": "valid",
+      "actual_output": null
+    }
+  ]
+}
