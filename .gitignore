@@ -2,16 +2,8 @@
 *.rmeta
 
 # Excluded directories
-revision/
-transpiled_rust_spec_v1/
 transpiled_rust_with_spec/
 .claude/
 
 # Excluded files
-src/c2rust/transpile_with_spec.py
-
-# Exclude executable files in RQ2_result/harness
-RQ2_result/harness/**/*
-!RQ2_result/harness/**/*.c
-!RQ2_result/harness/**/*.rs
-!RQ2_result/harness/**/*.json
+src/workflow/modular.py

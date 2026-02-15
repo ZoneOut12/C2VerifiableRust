@@ -314,6 +314,7 @@ class NonTypedItemExtractor(ACSLParserVisitor):
     def visitChildren(self, ctx):
         res = ""
         for child in ctx.children:
+            # raise ValueError(f"{child}: {child.getText()}")
             res += self.visit(child)
         return res
 

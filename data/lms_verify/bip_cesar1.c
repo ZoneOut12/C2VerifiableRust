@@ -100,3 +100,26 @@ void autoencode(int* s1, int* s2, int* s3, int n) {
   //@assert \forall int i; 0 <= i < n ==> s3[i]==decypher(cypher(s1[i]));
   //@assert \forall int i; 0 <= i < n ==> s3[i]==s1[i];
 }
+
+/*@ requires \valid(pp);
+    requires \valid(*pp);
+    requires 0 <= **pp <= 26;
+    assigns **pp;
+    ensures **pp == cypher(\old(**pp));
+*/
+void cypher_via_pp(int **pp)
+{
+    **pp = cypher(**pp);
+}
+
+/*@ requires \valid(pp);
+    requires \valid(*pp);
+    requires 0 <= **pp <= 26;
+    assigns **pp;
+    ensures **pp == decypher(\old(**pp));
+*/
+void decypher_via_pp(int **pp)
+{
+    **pp = decypher(**pp);
+}
+

@@ -1,4 +1,4 @@
-# Migration Framework
+# Migration Framework C2VR
 The objective of this work is to study the migration of formally specified C programs (i.e., C programs annotated with ACSL specifications) into verifiable Rust with Verus specifications.
 
 This repository contains dataset and source code for migration.
@@ -21,7 +21,7 @@ Our experiments are conducted on Ubuntu. To configure the environment, basic com
     source ~/miniconda3/bin/activate
     conda init
     ```
-2. Switch to the `verified-c2rust` directory, and create the virtual environment used in our experiments:
+2. Switch to the `C2VerifiableRust` directory, and create the virtual environment used in our experiments:
     ```bash
     conda env create -f environment.yml
     conda activate migration

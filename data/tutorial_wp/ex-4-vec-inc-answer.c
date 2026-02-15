@@ -50,3 +50,30 @@ void vec_add(int* v1, const int* v2, size_t len){
 void show_the_difference(int* v1, const int* v2, size_t len){
   vec_add(v1, v2, len);
 }
+
+/*@ requires \valid(pp);
+    requires \valid(*pp);
+    assigns **pp;
+    ensures **pp == val;
+*/
+void assign_pp(int **pp, int val)
+{
+    **pp = val;
+}
+
+/*@ requires \valid(pa);
+    requires \valid(pb);
+    requires \valid(*pa);
+    requires \valid(*pb);
+    requires \separated(pa, pb);
+    requires \separated(*pa, *pb);
+    assigns **pa, **pb;
+    ensures **pa == \old(**pb);
+    ensures **pb == \old(**pa);
+*/
+void swap_values_pp(int **pa, int **pb)
+{
+    int tmp = **pa;
+    **pa = **pb;
+    **pb = tmp;
+}

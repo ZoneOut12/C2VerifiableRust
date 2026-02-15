@@ -171,3 +171,5 @@
 ./data/autospec_bench/SVCOMP_verfied/array_true-unreach-call1_final_simplified.c
 ./data/autospec_bench/X509-parser_verified/verify_correct_time_use_verified.c
 ./data/autospec_bench/X509-parser_verified/check_ia5_string_verified.c
+./data/tutorial_wp/large_benchmark/algorithms.c
+./data/tutorial_wp/large_benchmark/algorithms2.c

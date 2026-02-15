@@ -30,5 +30,7 @@
     "false.rs",
     "ex-2-gcd.rs",
     "ex-1-sum-N-first-ints-answer.rs",
-    "max_subarray-1.rs"
+    "max_subarray-1.rs",
+    "algorithms.rs",
+    "algorithms2.rs"
 ]

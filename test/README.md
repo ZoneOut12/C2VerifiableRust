@@ -2,11 +2,11 @@
 
 ## Overview
 
-`harness_generator.py` is an LLM-based test harness generator for ACSL-annotated C programs. It automatically generates test cases and C test harness code suitable for Frama-C verification.
+`harness_generator.py` is a test harness generator for ACSL-annotated C programs. It automatically generates test cases and C test harness code suitable for Frama-C verification.
 
 ## Features
 
-- **Automatic test case generation**: Uses LLM to generate valid, invalid, and boundary test cases based on ACSL preconditions
+- **Automatic test case generation**: Uses LLM to generate valid, invalid test cases based on ACSL preconditions and C code
 - **Integrated validation**: Validates preconditions with Frama-C WP and verifies output by executing C code
 - **Self-healing**: Automatically regenerates invalid test cases until all tests pass validation
 - **Structured output**: Produces both executable C harness code and JSON metadata for each function

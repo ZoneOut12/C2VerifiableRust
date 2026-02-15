@@ -1,6 +1,6 @@
 # RQ2 Result: Rust Migrations with Harnesses
 
-This directory contains 100 benchmark programs migrated to Rust with test harnesses **manually crafted** from ACSL specifications using LLM-assisted generation.
+This directory contains 100 benchmark programs migrated to Rust with test harnesses manually crafted based on test cases provided in `c_test.zip`
 
 ## Dataset Composition
 

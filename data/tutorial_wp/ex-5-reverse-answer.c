@@ -33,3 +33,35 @@ void reverse(int* array, size_t len){
     swap(array+i, array+len-i-1) ;
   }
 }
+
+typedef int (*unary_int_op)(int);
+
+/*@ requires -1000000 <= x <= 1000000;
+    assigns \nothing;
+    ensures \result == x + x;
+*/
+int fp_double(int x)
+{
+    return x + x;
+}
+
+/*@ requires -1000000 <= x <= 1000000;
+    assigns \nothing;
+    ensures \result == -x;
+*/
+int fp_negate(int x)
+{
+    return -x;
+}
+
+/*@ requires f == &fp_double || f == &fp_negate;
+    requires -1000000 <= x <= 1000000;
+    assigns \nothing;
+    ensures f == &fp_double ==> \result == x + x;
+    ensures f == &fp_negate ==> \result == -x;
+*/
+int apply_fn(unary_int_op f, int x)
+{
+    if (f == &fp_double) return fp_double(x);
+    return fp_negate(x);
+}

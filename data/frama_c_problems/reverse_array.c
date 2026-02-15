@@ -24,3 +24,30 @@ void reverse(int *a, int n) {
         j--;
     }
 }
+
+/*@ requires \valid(pp);
+    requires \valid(*pp);
+    assigns **pp;
+    ensures **pp == val;
+*/
+void write_via_pp(int **pp, int val)
+{
+    **pp = val;
+}
+
+/*@ requires \valid(pa);
+    requires \valid(pb);
+    requires \valid(*pa);
+    requires \valid(*pb);
+    requires \separated(pa, pb);
+    requires \separated(*pa, *pb);
+    assigns *pa, *pb;
+    ensures *pa == \old(*pb);
+    ensures *pb == \old(*pa);
+*/
+void swap_indirect(int **pa, int **pb)
+{
+    int *tmp = *pa;
+    *pa = *pb;
+    *pb = tmp;
+}

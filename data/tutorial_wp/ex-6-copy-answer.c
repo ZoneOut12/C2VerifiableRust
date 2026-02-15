@@ -65,3 +65,26 @@ void copy_backward(int const* src, int* dst, size_t len){
     dst[i-1] = src[i-1];
   }
 }
+
+/*@ requires \valid(pp);
+    requires \valid(*pp);
+    assigns **pp;
+    ensures **pp == val;
+*/
+void store_indirect(int **pp, int val)
+{
+    **pp = val;
+}
+
+/*@ requires \valid(src_pp);
+    requires \valid(dst_pp);
+    requires \valid(*src_pp);
+    requires \valid(*dst_pp);
+    requires \separated(*src_pp, *dst_pp);
+    assigns **dst_pp;
+    ensures **dst_pp == \old(**src_pp);
+*/
+void copy_indirect(int **src_pp, int **dst_pp)
+{
+    **dst_pp = **src_pp;
+}

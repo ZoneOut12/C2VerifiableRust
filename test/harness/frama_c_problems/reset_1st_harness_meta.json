@@ -1,7 +1,0 @@
-{
-  "source_file": "./data/frama_c_problems/reset_1st.c",
-  "function_name": "unknown",
-  "function_signature": "",
-  "preconditions": [],
-  "test_cases": []
-}

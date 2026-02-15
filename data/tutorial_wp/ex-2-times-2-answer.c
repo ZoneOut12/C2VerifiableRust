@@ -25,3 +25,38 @@ int times_2(int x){
   }
   return r;
 }
+
+typedef int (*arith_op)(int, int);
+
+/*@ requires -1000000 <= x <= 1000000;
+    requires -1000000 <= y <= 1000000;
+    assigns \nothing;
+    ensures \result == x + y;
+*/
+int arith_add(int x, int y)
+{
+    return x + y;
+}
+
+/*@ requires -1000000 <= x <= 1000000;
+    requires -1000000 <= y <= 1000000;
+    assigns \nothing;
+    ensures \result == x - y;
+*/
+int arith_sub(int x, int y)
+{
+    return x - y;
+}
+
+/*@ requires op == &arith_add || op == &arith_sub;
+    requires -1000000 <= x <= 1000000;
+    requires -1000000 <= y <= 1000000;
+    assigns \nothing;
+    ensures op == &arith_add ==> \result == x + y;
+    ensures op == &arith_sub ==> \result == x - y;
+*/
+int arith_apply(arith_op op, int x, int y)
+{
+    if (op == &arith_add) return arith_add(x, y);
+    return arith_sub(x, y);
+}

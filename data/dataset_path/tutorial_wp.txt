@@ -113,3 +113,5 @@
 ./data/tutorial_wp/ex-1-context-answer.c
 ./data/tutorial_wp/context.c
 ./data/tutorial_wp/lemma-macro-2-2.c
+./data/tutorial_wp/large_benchmark/algorithms.c
+./data/tutorial_wp/large_benchmark/algorithms2.c

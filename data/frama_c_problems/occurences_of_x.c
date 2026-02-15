@@ -30,3 +30,38 @@ int func(int *a, int n, int x, int *sum) {
     return count;
 }
 
+typedef int (*binop_func)(int, int);
+
+/*@ requires -1000000 <= a <= 1000000;
+    requires -1000000 <= b <= 1000000;
+    assigns \nothing;
+    ensures \result == a + b;
+*/
+int fp_add(int a, int b)
+{
+    return a + b;
+}
+
+/*@ requires -1000000 <= a <= 1000000;
+    requires -1000000 <= b <= 1000000;
+    assigns \nothing;
+    ensures \result == a - b;
+*/
+int fp_sub(int a, int b)
+{
+    return a - b;
+}
+
+/*@ requires op == &fp_add || op == &fp_sub;
+    requires -1000000 <= a <= 1000000;
+    requires -1000000 <= b <= 1000000;
+    assigns \nothing;
+    ensures op == &fp_add ==> \result == a + b;
+    ensures op == &fp_sub ==> \result == a - b;
+*/
+int fp_apply(binop_func op, int a, int b)
+{
+    if (op == &fp_add) return fp_add(a, b);
+    return fp_sub(a, b);
+}
+

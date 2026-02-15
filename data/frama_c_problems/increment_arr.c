@@ -17,3 +17,36 @@ void increment_array_by(int* arr, int n, int c) {
         arr[i] = arr[i] + c;
     }
 }
+
+typedef int (*unary_op)(int);
+
+/*@ requires INT_MIN < x;
+    assigns \nothing;
+    ensures \result == x + 1;
+*/
+int inc_one(int x)
+{
+    return x + 1;
+}
+
+/*@ requires x < INT_MAX;
+    assigns \nothing;
+    ensures \result == x - 1;
+*/
+int dec_one(int x)
+{
+    return x - 1;
+}
+
+/*@ requires op == &inc_one || op == &dec_one;
+    requires op == &inc_one ==> INT_MIN < x;
+    requires op == &dec_one ==> x < INT_MAX;
+    assigns \nothing;
+    ensures op == &inc_one ==> \result == x + 1;
+    ensures op == &dec_one ==> \result == x - 1;
+*/
+int apply_unary(unary_op op, int x)
+{
+    if (op == &inc_one) return inc_one(x);
+    return dec_one(x);
+}
